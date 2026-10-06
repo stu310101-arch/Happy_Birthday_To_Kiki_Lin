@@ -333,7 +333,23 @@ dialog::backdrop { background: rgba(3,9,19,.66); backdrop-filter: blur(7px); }
   max-width: 520px;
   aspect-ratio: 1 / 1;
   margin-top: 0;
+  position: relative;
+  isolation: isolate;
   transform-origin: 50% 65%;
+}
+.experience-shell #main-cake::after,
+#final-cake-slot #main-cake::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 10%;
+  height: 16%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(7, 11, 20, .34) 0, rgba(7, 11, 20, .18) 42%, rgba(7, 11, 20, 0) 72%);
+  filter: blur(16px);
+  z-index: -1;
+  pointer-events: none;
 }
 #main-cake .cake-image {
   display: block;
@@ -341,15 +357,15 @@ dialog::backdrop { background: rgba(3,9,19,.66); backdrop-filter: blur(7px); }
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  filter: none;
-  -webkit-mask-image: radial-gradient(ellipse 71% 74% at 50% 51%, #000 62%, #000 66%, transparent 74%);
-  mask-image: radial-gradient(ellipse 71% 74% at 50% 51%, #000 62%, #000 66%, transparent 74%);
+  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .15));
+  -webkit-mask-image: radial-gradient(ellipse 72% 75% at 50% 51%, #000 64%, #000 69%, transparent 78%);
+  mask-image: radial-gradient(ellipse 72% 75% at 50% 51%, #000 64%, #000 69%, transparent 78%);
 }
 /* Anchor the candle feet to the photo surface, rather than moving the top
    independently at each breakpoint. The cake asset is square. */
 #main-cake {
-  --candle-baseline: 35%;
-  --candle-width: 21.5%;
+  --candle-baseline: 46.5%;
+  --candle-width: 18.8%;
 }
 #main-cake .candles {
   top: auto;
@@ -386,9 +402,9 @@ dialog::backdrop { background: rgba(3,9,19,.66); backdrop-filter: blur(7px); }
   pointer-events: auto;
 }
 #main-cake .blow-button {
-  top: 1.5%;
-  left: 65%;
-  width: 110px;
+  top: 12%;
+  left: 63.5%;
+  width: 112px;
   padding: 0;
   font-size: 0 !important;
   line-height: 1 !important;
@@ -418,8 +434,15 @@ dialog::backdrop { background: rgba(3,9,19,.66); backdrop-filter: blur(7px); }
   .experience-shell.is-zooming #main-cake { transform: scale(1.06); }
   .experience-shell.is-wishing #main-cake,
   .experience-shell.is-received #main-cake { transform: scale(1.03); }
-  #main-cake { --candle-width: 22%; }
-  #main-cake .blow-button { width: 100px; }
+  #main-cake {
+    --candle-baseline: 47.5%;
+    --candle-width: 19.5%;
+  }
+  #main-cake .blow-button {
+    top: 13.5%;
+    left: 63%;
+    width: 100px;
+  }
 }
 
 /* Disabled prevents a second click; it must not wash out the wax artwork. */
@@ -450,8 +473,9 @@ body[data-phase="blowing"] #main-cake .cake-image,
 }
 body[data-phase="blowing"] #main-cake .cake-image,
 #final-cake-slot #main-cake .cake-image {
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .15)) !important;
+  -webkit-mask-image: radial-gradient(ellipse 72% 75% at 50% 51%, #000 64%, #000 69%, transparent 78%) !important;
+  mask-image: radial-gradient(ellipse 72% 75% at 50% 51%, #000 64%, #000 69%, transparent 78%) !important;
 }
 body[data-phase="finale"] #finale {
   animation: none !important;

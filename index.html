@@ -497,6 +497,79 @@ body[data-phase="finale"] #finale {
   filter: none !important;
   opacity: 1 !important;
 }
+
+/* Blend the photographic cake into the design in every cake view, not just the finale. */
+.experience-shell .cake-stage,
+.final-cake-slot .cake-stage {
+  position: relative;
+  isolation: isolate;
+}
+.experience-shell .cake-stage::before,
+.final-cake-slot .cake-stage::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 10%;
+  bottom: 16%;
+  border-radius: 46%;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(248, 239, 221, .16) 0, rgba(248, 239, 221, .08) 18%, rgba(78, 97, 137, .16) 44%, rgba(15, 24, 41, 0) 72%),
+    radial-gradient(circle at 50% 78%, rgba(14, 21, 35, .14) 0, rgba(14, 21, 35, 0) 68%);
+  filter: blur(16px);
+  pointer-events: none;
+  z-index: -2;
+}
+.experience-shell .cake-stage::after,
+.final-cake-slot .cake-stage::after {
+  content: "";
+  position: absolute;
+  left: 19%;
+  right: 19%;
+  bottom: 11%;
+  height: 11%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(212, 218, 229, .9));
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, .10),
+    inset 0 2px 3px rgba(255, 255, 255, .56),
+    inset 0 -3px 8px rgba(104, 118, 145, .24);
+  opacity: .88;
+  pointer-events: none;
+  z-index: -1;
+}
+.experience-shell #main-cake .cake-image,
+.final-cake-slot #main-cake .cake-image {
+  transform: scale(.955);
+  transform-origin: 50% 57%;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .14)) !important;
+  -webkit-mask-image: radial-gradient(ellipse 64% 68% at 50% 51%, #000 54%, rgba(0,0,0,.99) 60%, rgba(0,0,0,.86) 66%, rgba(0,0,0,.42) 73%, transparent 80%) !important;
+  mask-image: radial-gradient(ellipse 64% 68% at 50% 51%, #000 54%, rgba(0,0,0,.99) 60%, rgba(0,0,0,.86) 66%, rgba(0,0,0,.42) 73%, transparent 80%) !important;
+}
+.experience-shell #main-cake::after {
+  left: 18%;
+  right: 18%;
+  bottom: 12%;
+  height: 14%;
+  background: radial-gradient(ellipse at center, rgba(7, 11, 20, .22) 0, rgba(7, 11, 20, .10) 42%, rgba(7, 11, 20, 0) 76%);
+  filter: blur(18px);
+}
+@media (max-width: 620px) {
+  .experience-shell .cake-stage::before,
+  .final-cake-slot .cake-stage::before {
+    left: 7%;
+    right: 7%;
+    top: 12%;
+    bottom: 18%;
+  }
+  .experience-shell .cake-stage::after,
+  .final-cake-slot .cake-stage::after {
+    left: 15%;
+    right: 15%;
+    bottom: 12%;
+    height: 10%;
+  }
+}
 </style><style id="midnight-copy-layout">
 .scene-intro .intro-number { opacity: .18; }
 .scene-intro .intro-copy {

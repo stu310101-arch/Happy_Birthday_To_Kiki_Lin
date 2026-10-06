@@ -21,7 +21,7 @@
 .candles{position:absolute;left:50%;top:18.4%;width:23.7%;padding:0;background:transparent;transform:translateX(-50%);aspect-ratio:140/128;z-index:4;border-radius:12px}.candle-numbers{position:relative;width:100%;height:auto;display:block}.candles.is-lit{animation:candles-arrive .9s var(--ease) both}@keyframes candles-arrive{from{opacity:0;transform:translate(-50%,-25px) scale(.85)}to{opacity:1;transform:translate(-50%,0) scale(1)}}.wick{position:absolute;top:-.8%;height:8%;width:2.1%;max-width:3px;z-index:1;background:linear-gradient(#e8a452,#493b35);border-radius:50%}.wick-one{left:25.6%}.wick-eight{left:64.2%}.flame{position:absolute;top:-23.5%;width:12%;aspect-ratio:.58;isolation:isolate;z-index:2;border-radius:68% 32% 51% 49% / 72% 57% 43% 28%;background:radial-gradient(ellipse at 49% 81%,#fffcce 0 13%,#ffe991ef 30%,#ffc954ed 55%,#f9a839c4 73%,#eb83365e 91%,transparent 100%);box-shadow:0 0 5px 1px #ffc85b45,0 0 13px 4px #ffd57531;transform-origin:50% 100%;animation:candle-breathe 2.3s ease-in-out infinite}.flame::before{content:"";position:absolute;inset:-35% -62% -19%;z-index:-1;border-radius:50%;background:radial-gradient(ellipse at 50% 64%,#ffe2a33a 0 18%,#ffca6630 38%,transparent 76%);filter:blur(3px)}.flame::after{content:"";position:absolute;left:29%;bottom:7%;width:43%;height:57%;border-radius:60% 40% 48% 52%;background:linear-gradient(#fffde9,#fff1b5f5,#e8a04885);filter:blur(.35px)}.flame-one{left:21.1%;animation-delay:-.6s}.flame-eight{left:59.7%;animation-duration:2.7s;animation-delay:-1.4s}@keyframes candle-breathe{0%,100%{transform:rotate(-2deg) scale(.98,1)}25%{transform:rotate(1.5deg) scale(1.025,.965)}72%{transform:rotate(2.5deg) scale(1,.985)}}.smoke{position:absolute;top:-18%;height:30%;width:11%;border:2px solid var(--muted);border-top-color:transparent;border-bottom-color:transparent;border-radius:50%;filter:blur(3px);opacity:0;pointer-events:none}.smoke-one{left:21%}.smoke-eight{left:60%}.candles.is-extinguished .flame{animation:candle-out .42s ease-out both;box-shadow:none}.candles.is-extinguished .flame::before,.candles.is-extinguished .flame::after{opacity:0}.candles.is-extinguished .smoke{animation:smoke-rise 1.5s ease-out both}@keyframes candle-out{to{opacity:0;transform:translate(7px,-4px) rotate(43deg) scale(.35,.05)}}@keyframes smoke-rise{0%{opacity:0}20%{opacity:.28}100%{opacity:0;transform:translate(12px,-68px) scale(1.9)}}
 .experience-shell.is-wishing .card-spine,.experience-shell.is-received .card-spine{opacity:0}.experience-shell.is-zooming .letter-copy{opacity:0;transform:translateY(-20px);transition:opacity .6s,transform .8s}.experience-shell.is-zooming .cake-stage{transform:translateX(-5%) scale(1.2)}.experience-shell.is-wishing .cake-stage,.experience-shell.is-received .cake-stage{transform:translateX(-1%) scale(1.15)}.experience-shell.is-wishing .cake-buddy,.experience-shell.is-received .cake-buddy{display:none}.wish-copy h2,.receipt-copy h2{font:600 38px/1.55 var(--heading-font);letter-spacing:.015em;color:var(--ink);margin:0 0 13px}.wish-copy h2 em{display:block;color:var(--heading-accent)}.wish-description{font-size:14px;line-height:1.85;color:var(--muted);margin:0 0 22px}.field-group{margin-bottom:17px}.field-group label{display:flex;align-items:center;gap:8px;font-size:13px;line-height:1.7;margin-bottom:8px}.field-group label>span{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;font-size:11px;background:var(--soft);color:var(--link);border-radius:50%}.field-group label svg{width:13px;height:13px;color:var(--accent)}.field-group input{display:block;width:100%;min-height:50px;background:var(--input);border:1px solid var(--line);border-radius:var(--input-radius);padding:11px 13px;color:var(--ink);font-size:16px}.field-group input::placeholder{color:var(--muted);font-size:13px}.field-group input:focus{border-color:var(--focus);background:var(--surface)}.field-group input[aria-invalid="true"]{border:2px solid var(--error)}.field-help,.field-error{font-size:12px;line-height:1.8;margin:6px 0 0}.field-help{color:var(--muted)}.field-error{color:var(--error);font-weight:600}.field-error::before{content:"↳ "}.field-group.is-shaking{animation:shake .35s ease-in-out}@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}.wish-choices{display:grid;gap:12px;margin-top:7px}.wish-choice-button{width:100%;min-height:54px;padding:16px;border-radius:var(--radius);font-size:14px;line-height:1.75;letter-spacing:.01em}.share-wishes-button{flex-direction:column;gap:3px}.share-aside{font-size:12px;font-weight:400;letter-spacing:0;overflow-wrap:anywhere}#private-wishes{position:relative;justify-content:center;padding-inline:44px;text-align:center}#private-wishes svg{position:absolute;right:16px;top:calc(50% - 10px);width:20px;height:20px}.wish-privacy{font-size:11px;line-height:1.9;color:var(--muted);margin:16px 0 0}.wish-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;pointer-events:none}
 .receipt-copy{text-align:center;padding:30px 0}.receipt-stamp{width:110px;margin:0 auto 26px;color:var(--link);transform:rotate(-10deg)}.receipt-stamp>svg{width:70px;height:70px;fill:none;stroke:currentColor;stroke-width:1.3}.receipt-stamp svg path{stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:70;stroke-dashoffset:70;animation:check-in .9s .15s forwards}@keyframes check-in{to{stroke-dashoffset:0}}.receipt-stamp>span{display:block;font-size:9px;letter-spacing:.08em}.receipt-promise{color:var(--link);font-size:16px;line-height:1.8;margin:0}.receipt-divider{display:flex;align-items:center;justify-content:center;gap:13px;margin:29px 0 22px;color:var(--accent)}.receipt-divider span{width:40px;height:1px;background:var(--line)}.receipt-divider svg{width:13px;height:13px}.receipt-note{font-size:13px;line-height:2;color:var(--muted);margin:0}.blow-button{position:absolute;left:64%;top:7%;z-index:6;width:120px;padding:10px 4px;background:transparent;color:var(--link);transform:rotate(5deg)}.blow-button>span{display:inline-block;padding:7px 12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);font-size:13px;white-space:nowrap}.blow-button svg{display:block;width:84px;height:50px;margin-left:-25px}.blow-button path{stroke:currentColor;stroke-width:1.3;fill:none;stroke-linecap:round;stroke-linejoin:round}.blow-button:hover>span{background:var(--soft)}
-.scene-finale{text-align:center;position:relative;padding:42px 0 36px}.final-topline{display:flex;align-items:center;justify-content:center;gap:13px;color:var(--muted);font-size:10px;letter-spacing:.18em;margin-bottom:24px}.final-topline svg{width:12px;height:12px;color:var(--accent)}#final-title{margin:0;font:600 78px/1.4 var(--heading-font);letter-spacing:.045em;color:var(--heading-accent)}#final-title>span{display:block;font-size:.33em;font-weight:500;letter-spacing:.07em;color:var(--ink);margin-bottom:10px}.final-message{font-size:15px;line-height:1.95;color:var(--muted);white-space:pre-line;max-width:620px;margin:17px auto 0}.final-celebration{position:relative;width:100%;max-width:790px;margin:auto}.final-cake-slot{position:relative;width:410px;max-width:80%;margin:0 auto 8px;padding:10px 0 24px;isolation:isolate}.final-cake-slot::before{content:"";position:absolute;inset:8% 10% 18%;border-radius:50%;background:radial-gradient(circle at 50% 42%,rgba(248,240,224,.12) 0,rgba(217,197,158,.12) 20%,rgba(47,66,104,.18) 46%,rgba(13,22,38,0) 74%);filter:blur(16px);z-index:-2;pointer-events:none}.final-cake-slot::after{content:"";position:absolute;left:12%;right:12%;bottom:8%;height:17%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(7,11,20,.28) 0,rgba(7,11,20,.14) 40%,rgba(7,11,20,0) 74%);filter:blur(18px);z-index:-1;pointer-events:none}.final-cake-slot .cake-stage{width:100%;transform:none}.final-cake-slot .candles{animation:none}.final-pets{position:absolute;pointer-events:none;left:0;right:0;top:34%;display:flex;justify-content:space-between;padding:0 12px}.final-pets svg{width:110px;height:110px;transform:rotate(-8deg)}.final-pets svg:last-child{transform:rotate(8deg)}.final-actions{display:flex;justify-content:center;align-items:center;gap:24px}.final-actions .button-primary{min-height:48px;font-size:13px;padding:12px 21px;gap:14px}.final-effects{display:flex;justify-content:center;gap:26px;margin-top:14px}.final-effects .text-button{font-size:12px;color:var(--muted)}.final-signoff{font-size:13px;line-height:1.8;color:var(--muted);margin:19px 0 0}#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:25}
+.scene-finale{text-align:center;position:relative;padding:42px 0 36px}.final-topline{display:flex;align-items:center;justify-content:center;gap:13px;color:var(--muted);font-size:10px;letter-spacing:.18em;margin-bottom:24px}.final-topline svg{width:12px;height:12px;color:var(--accent)}#final-title{margin:0;font:600 78px/1.4 var(--heading-font);letter-spacing:.045em;color:var(--heading-accent)}#final-title>span{display:block;font-size:.33em;font-weight:500;letter-spacing:.07em;color:var(--ink);margin-bottom:10px}.final-message{font-size:15px;line-height:1.95;color:var(--muted);white-space:pre-line;max-width:620px;margin:17px auto 0}.final-celebration{position:relative;width:100%;max-width:790px;margin:auto}.final-cake-slot{position:relative;width:410px;max-width:80%;margin:0 auto 8px}.final-cake-slot .cake-stage{width:100%;transform:none}.final-cake-slot .candles{animation:none}.final-pets{position:absolute;pointer-events:none;left:0;right:0;top:34%;display:flex;justify-content:space-between;padding:0 12px}.final-pets svg{width:110px;height:110px;transform:rotate(-8deg)}.final-pets svg:last-child{transform:rotate(8deg)}.final-actions{display:flex;justify-content:center;align-items:center;gap:24px}.final-actions .button-primary{min-height:48px;font-size:13px;padding:12px 21px;gap:14px}.final-effects{display:flex;justify-content:center;gap:26px;margin-top:14px}.final-effects .text-button{font-size:12px;color:var(--muted)}.final-signoff{font-size:13px;line-height:1.8;color:var(--muted);margin:19px 0 0}#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:25}
 dialog:not([open]){display:none}.dialog-open{overflow:hidden}#letter-dialog,.wish-share-dialog{width:640px;max-width:calc(100% - 32px);max-height:calc(100vh - 32px);padding:0;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:var(--card-radius);box-shadow:0 25px 80px #00000030}#letter-dialog{width:720px}dialog::backdrop{background:#17203070;backdrop-filter:blur(5px)}.dialog-toolbar{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 25px;border-bottom:1px solid var(--line);background:var(--soft);z-index:1}.dialog-toolbar>span{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);letter-spacing:.035em}.dialog-toolbar>span svg{width:19px;height:19px}.dialog-toolbar .text-button{font-size:12px;white-space:nowrap}#letter-dialog article{padding:34px 42px 40px}#letter-dialog h2{font:600 29px/1.65 var(--heading-font);color:var(--ink);margin:0 0 23px}#dialog-letter{font-size:16px;line-height:2;white-space:pre-line;margin:0;color:var(--ink)}#dialog-signature{font-size:13px;line-height:1.9;text-align:right;color:var(--muted);margin-top:24px}.share-review{padding:29px 34px 32px}.share-review h2{font:600 26px/1.7 var(--heading-font);color:var(--ink);margin:0 0 15px}.share-review p{font-size:14px;line-height:1.9}.share-review strong{overflow-wrap:anywhere;font-weight:600;color:var(--link)}.share-review a{color:var(--link);text-underline-offset:3px}.share-preview{margin:21px 0;padding:18px 20px;border:1px solid var(--line);background:var(--soft);border-radius:var(--input-radius)}.share-preview dt{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:5px}.share-preview dd{font-size:15px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere;margin:0 0 16px}.share-preview dd:last-child{margin-bottom:0}.share-review .share-secret-note,.share-review .share-delivery-status{font-size:12px;color:var(--muted);line-height:1.9}.share-review-actions{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px solid var(--line);padding-top:19px;margin-top:20px}.share-review-actions .button-primary{font-size:13px;min-height:48px;padding:12px 22px}.share-consent-detail{font-size:12px!important;color:var(--muted);padding:10px 12px;background:var(--soft);border-radius:var(--input-radius)}.private-choice-dialog{width:580px}.private-choice-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.private-choice-actions .button-primary{min-height:56px;padding:14px 12px;font-size:14px;line-height:1.8;letter-spacing:0}.private-choice-disclosure{color:var(--muted);font-size:13px!important;line-height:1.9}.wish-share-result{font-size:12px;line-height:1.9;color:var(--muted);padding:12px 14px;background:var(--soft);border:1px solid var(--line);border-radius:var(--input-radius);margin:0 0 19px;text-align:left}.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:50;max-width:calc(100% - 32px);padding:12px 18px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:0 10px 30px #00000020;border-radius:var(--radius);font-size:13px;text-align:center}.noscript-message{position:fixed;inset:auto 0 0;z-index:99;padding:20px;background:var(--accent);color:var(--on-accent);text-align:center}
 @media(max-width:1100px){.page-shell{width:calc(100% - 60px)}.scene-welcome{gap:24px;padding-left:3px;padding-right:3px;min-height:600px}.welcome-copy h1{font-size:43px}.experience-shell{padding:36px 30px}.letter-copy h2{font-size:28px}.left-column{padding-right:24px}.cake-stage{width:130%}.experience-shell.is-received .blow-button{left:56%}}
 @media(max-width:800px){.page-shell{width:calc(100% - 40px)}.masthead{min-height:88px}.brand{font-size:15px}.scene-welcome{min-height:560px}.welcome-copy h1{font-size:35px}.welcome-copy .eyebrow{font-size:10px}.experience-shell{padding:34px 26px}.left-column{width:61%;padding-right:18px}.card-spine{left:62%}.letter-copy h2{font-size:26px}.cake-stage{width:145%}.wish-copy h2{font-size:31px}.scene-heading{font-size:32px}.final-pets svg{width:90px;height:90px}}
@@ -327,248 +327,186 @@ dialog::backdrop { background: rgba(3,9,19,.66); backdrop-filter: blur(7px); }
   .button-primary { transition: none; }
   .button-primary:hover:not(:disabled) { transform: none; }
 }
-</style><style id="midnight-realistic-cake">
-.experience-shell #main-cake {
-  width: 108%;
-  max-width: 520px;
-  aspect-ratio: 1 / 1;
-  margin-top: 0;
+</style><style id="midnight-vector-cake">
+/* One 640 x 600 coordinate plane for both the vector cake and original candles. */
+#main-cake {
+  --scene-width: 640;
+  --scene-height: 600;
+  --candle-x: 256;
+  --candle-y: 150;
+  --candle-w: 140;
+  --candle-h: 128;
   position: relative;
   isolation: isolate;
+  display: block;
+  flex: none;
+  width: 108%;
+  max-width: 520px;
+  height: auto;
+  aspect-ratio: 640 / 600;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
   transform-origin: 50% 65%;
+  filter: none !important;
+  opacity: 1 !important;
 }
-.experience-shell #main-cake::after,
-#final-cake-slot #main-cake::after {
-  content: "";
-  position: absolute;
-  left: 15%;
-  right: 15%;
-  bottom: 10%;
-  height: 16%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(7, 11, 20, .34) 0, rgba(7, 11, 20, .18) 42%, rgba(7, 11, 20, 0) 72%);
-  filter: blur(16px);
-  z-index: -1;
-  pointer-events: none;
+#main-cake::before,
+#main-cake::after,
+#final-cake-slot::before,
+#final-cake-slot::after {
+  content: none !important;
+  display: none !important;
 }
-#main-cake .cake-image {
+#main-cake > svg.cake-image {
+  position: relative;
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .15));
-  -webkit-mask-image: radial-gradient(ellipse 72% 75% at 50% 51%, #000 64%, #000 69%, transparent 78%);
-  mask-image: radial-gradient(ellipse 72% 75% at 50% 51%, #000 64%, #000 69%, transparent 78%);
+  aspect-ratio: 640 / 600;
+  overflow: visible;
+  background: transparent !important;
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  transform: none !important;
+  transition: none;
+  pointer-events: none;
 }
-/* Anchor the candle feet to the photo surface, rather than moving the top
-   independently at each breakpoint. The cake asset is square. */
-#main-cake {
-  --candle-baseline: 46.5%;
-  --candle-width: 18.8%;
-}
-#main-cake .candles {
-  top: auto;
-  bottom: calc(100% - var(--candle-baseline));
-  left: 50%;
-  width: var(--candle-width);
-  height: auto;
+#main-cake .candle-contact { opacity: 0; }
+body[data-phase="wishes"] #main-cake .candle-contact,
+body[data-phase="received"] #main-cake .candle-contact,
+body[data-phase="blowing"] #main-cake .candle-contact,
+body[data-phase="finale"] #main-cake .candle-contact { opacity: 1; }
+#main-cake #candle-button {
+  position: absolute;
+  left: calc(100% * var(--candle-x) / var(--scene-width));
+  top: calc(100% * var(--candle-y) / var(--scene-height));
+  right: auto;
+  bottom: auto;
+  width: calc(100% * var(--candle-w) / var(--scene-width));
+  height: calc(100% * var(--candle-h) / var(--scene-height));
+  min-width: 0;
   min-height: 0;
+  max-width: none;
   aspect-ratio: 140 / 128;
-  display: block;
+  margin: 0;
   padding: 0;
   border: 0;
+  background: transparent !important;
+  box-shadow: none;
   font-size: 0 !important;
   line-height: 0 !important;
-  transform: translateX(-50%);
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  z-index: 6;
   cursor: pointer;
+  overflow: visible;
+  touch-action: manipulation;
 }
-#main-cake .candle-numbers {
+#main-cake #candle-button.is-lit { animation: none !important; }
+#main-cake #candle-button .candle-numbers {
+  position: relative;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
   pointer-events: none;
 }
-#main-cake .candles > span {
-  pointer-events: none;
-}
-/* Invisible hit area includes the flames; the original 18 artwork is unchanged. */
-#main-cake .candles:not(:disabled)::after {
+#main-cake #candle-button > span { pointer-events: none; }
+/* This hit target includes the flame above the wax. It does not move the art. */
+#main-cake #candle-button:not(:disabled)::after {
   content: "";
   position: absolute;
-  inset: -30% -10% -6%;
-  z-index: 5;
+  inset: -32% -10% -3%;
   background: transparent;
   pointer-events: auto;
+  z-index: 8;
 }
-#main-cake .blow-button {
-  top: 12%;
-  left: 63.5%;
-  width: 112px;
+#main-cake #candle-button:disabled::after { content: none; }
+#main-cake #candle-button.is-extinguished {
+  animation: none !important;
+  opacity: 1 !important;
+}
+#main-cake #candle-button.is-extinguished .flame {
+  opacity: 0 !important;
+  box-shadow: none !important;
+}
+#main-cake #candle-button.is-extinguished .smoke {
+  filter: none !important;
+}
+#main-cake #blow-button {
+  position: absolute;
+  top: 13%;
+  left: 65%;
+  width: 108px;
+  min-height: 44px;
+  margin: 0;
   padding: 0;
   font-size: 0 !important;
   line-height: 1 !important;
   transform: none;
+  z-index: 7;
 }
-#main-cake .blow-button > span {
+#main-cake #blow-button > span {
   font-size: 13px;
   line-height: 1.6;
   padding: 7px 10px;
 }
-#main-cake .cs-one { top: 10%; left: 14%; }
-#main-cake .cs-two { top: 6%; right: 15%; }
-#main-cake .cs-three { top: 72%; right: 2%; }
+#main-cake .cs-one { top: 22%; left: 17%; }
+#main-cake .cs-two { top: 18%; right: 18%; }
+#main-cake .cs-three { top: 65%; right: 9%; }
+#cake-home .cake-halo {
+  background: transparent !important;
+  border-color: rgba(217, 191, 139, .23);
+}
+#cake-home .cake-halo::before { border-color: rgba(217, 191, 139, .13); }
+#final-cake-slot {
+  width: 440px;
+  max-width: 90%;
+  padding: 0;
+  margin: 2px auto 8px;
+}
 #final-cake-slot #main-cake {
   width: 100%;
-  max-width: 430px;
-  aspect-ratio: 1 / 1;
-  margin: 0 auto;
-  transform: none;
+  max-width: none;
+  margin: 0;
+  transform: none !important;
 }
-#final-cake-slot #main-cake::after {
-  left: 17%;
-  right: 17%;
-  bottom: 11%;
-  height: 15%;
-  background: radial-gradient(ellipse at center, rgba(7, 11, 20, .26) 0, rgba(7, 11, 20, .12) 44%, rgba(7, 11, 20, 0) 76%);
-  filter: blur(18px);
-}
-#final-cake-slot #main-cake .cake-image {
-  transform: scale(.965);
-  transform-origin: 50% 58%;
-  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, .14)) !important;
-  -webkit-mask-image: radial-gradient(ellipse 65% 68% at 50% 51%, #000 55%, rgba(0,0,0,.98) 61%, rgba(0,0,0,.82) 67%, rgba(0,0,0,.38) 73%, transparent 80%) !important;
-  mask-image: radial-gradient(ellipse 65% 68% at 50% 51%, #000 55%, rgba(0,0,0,.98) 61%, rgba(0,0,0,.82) 67%, rgba(0,0,0,.38) 73%, transparent 80%) !important;
-}
-@media (max-width: 620px) {
-  .experience-shell #main-cake {
-    width: 110%;
-    max-width: 360px;
-    margin-top: 4px;
-  }
-  .experience-shell.is-zooming #main-cake { transform: scale(1.06); }
-  .experience-shell.is-wishing #main-cake,
-  .experience-shell.is-received #main-cake { transform: scale(1.03); }
-  #main-cake {
-    --candle-baseline: 47.5%;
-    --candle-width: 19.5%;
-  }
-  #main-cake .blow-button {
-    top: 13.5%;
-    left: 63%;
-    width: 100px;
-  }
-}
-
-/* Disabled prevents a second click; it must not wash out the wax artwork. */
-#main-cake .candles:disabled,
-#main-cake .candles.is-extinguished {
-  opacity: 1 !important;
-  filter: none !important;
-}
-#main-cake .candles.is-extinguished,
-#final-cake-slot #main-cake .candles {
-  animation: none !important;
-}
-#main-cake .candles.is-extinguished .flame {
-  opacity: 0 !important;
-  box-shadow: none !important;
-}
-#main-cake .candles.is-extinguished .smoke {
-  filter: none !important;
-}
-/* Keep the cake and the final scene sharp. Only the flames extinguish. */
 body[data-phase="blowing"] #main-cake,
-#final-cake-slot #main-cake,
-#final-cake-slot #main-cake .candle-numbers,
-body[data-phase="blowing"] #main-cake .cake-image,
-#final-cake-slot #main-cake .cake-image {
-  filter: none !important;
-  opacity: 1 !important;
-}
-body[data-phase="blowing"] #main-cake .cake-image,
-#final-cake-slot #main-cake .cake-image {
-  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .15)) !important;
-  -webkit-mask-image: radial-gradient(ellipse 72% 75% at 50% 51%, #000 64%, #000 69%, transparent 78%) !important;
-  mask-image: radial-gradient(ellipse 72% 75% at 50% 51%, #000 64%, #000 69%, transparent 78%) !important;
-}
+body[data-phase="finale"] #main-cake,
 body[data-phase="finale"] #finale {
-  animation: none !important;
   filter: none !important;
   opacity: 1 !important;
 }
-
-/* Blend the photographic cake into the design in every cake view, not just the finale. */
-.experience-shell .cake-stage,
-.final-cake-slot .cake-stage {
-  position: relative;
-  isolation: isolate;
-}
-.experience-shell .cake-stage::before,
-.final-cake-slot .cake-stage::before {
-  content: "";
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: 10%;
-  bottom: 16%;
-  border-radius: 46%;
-  background:
-    radial-gradient(circle at 50% 38%, rgba(248, 239, 221, .16) 0, rgba(248, 239, 221, .08) 18%, rgba(78, 97, 137, .16) 44%, rgba(15, 24, 41, 0) 72%),
-    radial-gradient(circle at 50% 78%, rgba(14, 21, 35, .14) 0, rgba(14, 21, 35, 0) 68%);
-  filter: blur(16px);
-  pointer-events: none;
-  z-index: -2;
-}
-.experience-shell .cake-stage::after,
-.final-cake-slot .cake-stage::after {
-  content: "";
-  position: absolute;
-  left: 19%;
-  right: 19%;
-  bottom: 11%;
-  height: 11%;
-  border-radius: 50%;
-  background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(212, 218, 229, .9));
-  box-shadow:
-    0 10px 18px rgba(0, 0, 0, .10),
-    inset 0 2px 3px rgba(255, 255, 255, .56),
-    inset 0 -3px 8px rgba(104, 118, 145, .24);
-  opacity: .88;
-  pointer-events: none;
-  z-index: -1;
-}
-.experience-shell #main-cake .cake-image,
-.final-cake-slot #main-cake .cake-image {
-  transform: scale(.955);
-  transform-origin: 50% 57%;
-  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .14)) !important;
-  -webkit-mask-image: radial-gradient(ellipse 64% 68% at 50% 51%, #000 54%, rgba(0,0,0,.99) 60%, rgba(0,0,0,.86) 66%, rgba(0,0,0,.42) 73%, transparent 80%) !important;
-  mask-image: radial-gradient(ellipse 64% 68% at 50% 51%, #000 54%, rgba(0,0,0,.99) 60%, rgba(0,0,0,.86) 66%, rgba(0,0,0,.42) 73%, transparent 80%) !important;
-}
-.experience-shell #main-cake::after {
-  left: 18%;
-  right: 18%;
-  bottom: 12%;
-  height: 14%;
-  background: radial-gradient(ellipse at center, rgba(7, 11, 20, .22) 0, rgba(7, 11, 20, .10) 42%, rgba(7, 11, 20, 0) 76%);
-  filter: blur(18px);
-}
+body[data-phase="finale"] #finale { animation: none !important; }
 @media (max-width: 620px) {
-  .experience-shell .cake-stage::before,
-  .final-cake-slot .cake-stage::before {
-    left: 7%;
-    right: 7%;
-    top: 12%;
-    bottom: 18%;
+  /* The existing global button typography must not overflow the audio control. */
+  .masthead .music-toggle {
+    flex-shrink: 0;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    letter-spacing: .015em !important;
   }
-  .experience-shell .cake-stage::after,
-  .final-cake-slot .cake-stage::after {
-    left: 15%;
-    right: 15%;
-    bottom: 12%;
-    height: 10%;
+  #main-cake { width: 110%; max-width: 360px; }
+  .experience-shell.is-zooming #main-cake { transform: scale(1.03); }
+  .experience-shell.is-wishing #main-cake,
+  .experience-shell.is-received #main-cake {
+    width: 110%;
+    max-width: 350px;
+    margin-top: 0;
+    transform: none;
   }
+  #main-cake #blow-button { width: 92px; left: 65%; }
+  #final-cake-slot { width: 350px; max-width: 100%; padding: 0; margin: 4px auto 8px; }
 }
 </style><style id="midnight-copy-layout">
 .scene-intro .intro-number { opacity: .18; }
@@ -716,7 +654,368 @@ body[data-phase="finale"] #finale {
             <div class="cake-halo" aria-hidden="true"></div><svg class="cake-buddy" aria-hidden="true"><use href="#pet-dog"/></svg>
             <div class="cake-stage" id="main-cake">
               <svg class="cake-sparkle cs-one" aria-hidden="true"><use href="#i-star"/></svg><svg class="cake-sparkle cs-two" aria-hidden="true"><use href="#i-star"/></svg><svg class="cake-sparkle cs-three" aria-hidden="true"><use href="#i-star"/></svg>
-              <img class="cake-image" src="https://birthday-five-preview-1006.floot.app/_cdn/static/6dda057e-62bc-4a01-8492-6a3a0c40baac.png" width="640" height="600" alt="星空藍蛋糕、月光奶油與淡金裝飾的生日蛋糕">
+              <svg xmlns="http://www.w3.org/2000/svg" class="cake-image" width="640" height="600" viewBox="0 0 640 600" role="img" aria-label="鮮奶油與藍莓夾層生日蛋糕">
+<defs>
+  <linearGradient id="vc-cream" x1="150" y1="320" x2="490" y2="320" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#edd5af"/><stop offset=".12" stop-color="#fff2d8"/><stop offset=".39" stop-color="#fffdf4"/><stop offset=".69" stop-color="#fff7e6"/><stop offset="1" stop-color="#e9cda2"/>
+  </linearGradient>
+  <linearGradient id="vc-sponge" x1="150" y1="380" x2="490" y2="380" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#cf883f"/><stop offset=".22" stop-color="#efba6e"/><stop offset=".52" stop-color="#f7cf8f"/><stop offset=".78" stop-color="#eab467"/><stop offset="1" stop-color="#ca833e"/>
+  </linearGradient>
+  <linearGradient id="vc-jam" x1="150" y1="380" x2="490" y2="380" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#432047"/><stop offset=".25" stop-color="#803b76"/><stop offset=".6" stop-color="#9a477f"/><stop offset="1" stop-color="#45214b"/>
+  </linearGradient>
+  <radialGradient id="vc-top" cx=".4" cy=".32" r=".8">
+    <stop stop-color="#fffef8"/><stop offset=".68" stop-color="#fff3dc"/><stop offset="1" stop-color="#eacc9c"/>
+  </radialGradient>
+  <radialGradient id="vc-berry" cx=".31" cy=".26" r=".84">
+    <stop stop-color="#829bdf"/><stop offset=".28" stop-color="#536bbe"/><stop offset=".66" stop-color="#2d3d86"/><stop offset="1" stop-color="#161e4b"/>
+  </radialGradient>
+  <linearGradient id="vc-dollop" x1="-15" y1="-6" x2="15" y2="8" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#e9cda3"/><stop offset=".3" stop-color="#fff9ec"/><stop offset=".6" stop-color="#fffef7"/><stop offset="1" stop-color="#f3dfbc"/>
+  </linearGradient>
+  <linearGradient id="vc-plate" x1="110" y1="470" x2="514" y2="526" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#f0dfc0"/><stop offset=".25" stop-color="#fffdf7"/><stop offset=".65" stop-color="#f7edda"/><stop offset="1" stop-color="#cbb38a"/>
+  </linearGradient>
+  <linearGradient id="vc-gold" x1="100" y1="470" x2="540" y2="520" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#ad7b35"/><stop offset=".35" stop-color="#f7dda0"/><stop offset=".65" stop-color="#ddb86d"/><stop offset="1" stop-color="#9c6b2d"/>
+  </linearGradient>
+  <radialGradient id="vc-shadow"><stop stop-color="#030812" stop-opacity=".4"/><stop offset="1" stop-color="#030812" stop-opacity="0"/></radialGradient>
+  <clipPath id="vc-bodyclip"><path d="M150 276H490V424C490 455 414 480 320 480S150 455 150 424Z"/></clipPath>
+  <clipPath id="vc-spongeclip"><path d="M150 291C150 322 226 347 320 347S490 322 490 291V333C490 364 414 389 320 389S150 364 150 333Z"/><path d="M150 361C150 392 226 417 320 417S490 392 490 361V409C490 440 414 465 320 465S150 440 150 409Z"/></clipPath>
+  <g id="vc-blueberry">
+    <ellipse cx="1" cy="11" rx="14" ry="4" fill="#312045" opacity=".16"/>
+    <circle r="15" fill="url(#vc-berry)"/>
+    <path d="M-12-3C-11-12-3-15 5-11" fill="none" stroke="#becaf0" stroke-width="2" stroke-linecap="round" opacity=".42"/>
+    <path d="M-3-7L0-4 4-5 3-1 6 2 2 3 0 7-3 4-7 4-6 0-8-3-4-3Z" fill="#233068" stroke="#899fd7" stroke-width=".8" stroke-linejoin="round"/>
+    <ellipse cx="-1" cy="0" rx="2.5" ry="2" fill="#141d46"/>
+    <path d="M-10 8Q0 15 10 6" fill="none" stroke="#192350" stroke-width="1.2" opacity=".5"/>
+  </g>
+  <g id="vc-rosette">
+    <ellipse cy="5" rx="17" ry="10" fill="#bf9360" opacity=".16"/>
+    <path d="M-17 3C-18-4-12-9-8-11C-6-18 2-17 5-21C3-10 17-8 17 2C18 10 10 15 0 15S-18 11-17 3Z" fill="url(#vc-dollop)"/>
+    <path d="M5-18C-1-9-11-4-10 6M5-12C4-7 0-1-1 11M9-6C12 0 10 6 7 11" fill="none" stroke="#dabe91" stroke-opacity=".65" stroke-width="1.3" stroke-linecap="round"/>
+    <path d="M-7-10Q-12 0-12 6M2-12Q-3 0-3 8" fill="none" stroke="#fffef7" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g id="vc-leaf">
+    <path d="M0 0C-1-18 14-29 32-25C24-6 13 5 0 0Z" fill="#58783f"/>
+    <path d="M1-1L27-22M10-9L7-19M17-15L24-13" stroke="#bed079" stroke-width="1.1" fill="none"/>
+  </g>
+</defs>
+<!-- Genuine transparent vector artwork: no photographic image, mask or blur. -->
+<ellipse cx="320" cy="530" rx="214" ry="24" fill="url(#vc-shadow)"/>
+<path d="M106 474C106 505 202 530 320 530S534 505 534 474V470H106Z" fill="url(#vc-plate)"/>
+<ellipse cx="320" cy="472" rx="218" ry="54" fill="url(#vc-plate)" stroke="url(#vc-gold)" stroke-width="2.5"/>
+<ellipse cx="320" cy="471" rx="202" ry="46" fill="#fff9ed" stroke="#decba7" stroke-width="1"/>
+<path d="M132 484C186 520 440 526 505 484" fill="none" stroke="#fffef8" stroke-width="2" opacity=".8"/>
+<ellipse cx="320" cy="459" rx="171" ry="29" fill="#ac8654" opacity=".2"/>
+<path d="M150 276H490V424C490 455 414 480 320 480S150 455 150 424Z" fill="url(#vc-cream)"/>
+<g clip-path="url(#vc-bodyclip)">
+  <path d="M150 291C150 322 226 347 320 347S490 322 490 291V333C490 364 414 389 320 389S150 364 150 333Z" fill="url(#vc-sponge)"/><path d="M150 361C150 392 226 417 320 417S490 392 490 361V409C490 440 414 465 320 465S150 440 150 409Z" fill="url(#vc-sponge)"/>
+  <path d="M150 335C150 366 226 391 320 391S490 366 490 335V342C490 373 414 398 320 398S150 373 150 342Z" fill="url(#vc-jam)"/><path d="M150 411C150 442 226 467 320 467S490 442 490 411V417C490 448 414 473 320 473S150 448 150 417Z" fill="url(#vc-jam)"/>
+  <g clip-path="url(#vc-spongeclip)"><ellipse cx="213.5" cy="409.0" rx="1.2" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="362.8" cy="321.5" rx="1.1" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="237.8" cy="414.6" rx="1.2" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="442.2" cy="460.8" rx="1.1" ry="0.8" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="275.1" cy="380.9" rx="1.9" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="225.2" cy="342.7" rx="0.7" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="410.8" cy="362.3" rx="1.2" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="428.7" cy="397.8" rx="1.2" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="342.7" cy="379.6" rx="1.4" ry="1.2" fill="#b87532" opacity=".30"/>
+<ellipse cx="216.4" cy="406.4" rx="1.9" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="313.4" cy="306.5" rx="1.8" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="434.9" cy="432.7" rx="1.9" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="182.6" cy="315.1" rx="0.9" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="183.9" cy="352.5" rx="2.1" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="417.6" cy="437.7" rx="1.7" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="411.2" cy="443.1" rx="0.8" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="213.6" cy="364.2" rx="1.1" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="273.4" cy="349.4" rx="1.8" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="297.9" cy="415.9" rx="2.0" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="201.8" cy="317.8" rx="1.8" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="154.9" cy="389.8" rx="1.9" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="409.7" cy="429.0" rx="1.3" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="339.5" cy="447.0" rx="2.0" ry="1.2" fill="#b87532" opacity=".30"/>
+<ellipse cx="228.2" cy="444.3" rx="1.0" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="252.2" cy="298.7" rx="1.9" ry="1.3" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="398.8" cy="466.0" rx="1.5" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="469.0" cy="317.9" rx="1.6" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="196.5" cy="342.9" rx="1.6" ry="0.6" fill="#eaa657" opacity=".30"/>
+<ellipse cx="182.7" cy="336.8" rx="1.2" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="289.2" cy="381.9" rx="1.8" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="244.3" cy="367.5" rx="1.8" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="244.4" cy="327.4" rx="0.9" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="369.4" cy="304.4" rx="1.8" ry="0.8" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="239.9" cy="439.8" rx="1.9" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="226.1" cy="301.9" rx="1.4" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="207.2" cy="466.6" rx="0.8" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="462.0" cy="377.9" rx="1.9" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="439.9" cy="411.8" rx="1.4" ry="0.6" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="461.3" cy="440.6" rx="1.7" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="285.6" cy="425.4" rx="1.8" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="224.3" cy="386.6" rx="1.8" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="229.8" cy="417.9" rx="1.1" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="461.9" cy="381.7" rx="1.1" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="357.6" cy="400.4" rx="1.4" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="418.0" cy="380.7" rx="1.6" ry="0.8" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="248.8" cy="456.0" rx="0.7" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="343.1" cy="327.5" rx="1.0" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="215.9" cy="300.2" rx="1.5" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="335.0" cy="333.6" rx="0.8" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="313.2" cy="322.5" rx="1.4" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="252.8" cy="323.9" rx="2.0" ry="0.8" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="382.5" cy="386.6" rx="2.0" ry="0.9" fill="#b87532" opacity=".30"/>
+<ellipse cx="373.9" cy="424.9" rx="1.6" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="283.7" cy="304.4" rx="2.1" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="312.3" cy="450.0" rx="2.0" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="157.7" cy="352.1" rx="0.8" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="468.7" cy="400.5" rx="1.2" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="349.8" cy="311.0" rx="1.9" ry="1.2" fill="#b87532" opacity=".30"/>
+<ellipse cx="171.4" cy="410.6" rx="1.8" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="337.7" cy="430.3" rx="1.2" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="263.9" cy="335.4" rx="2.1" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="275.9" cy="364.4" rx="1.9" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="308.4" cy="411.1" rx="2.0" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="309.3" cy="436.6" rx="1.4" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="383.7" cy="351.1" rx="1.1" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="217.5" cy="392.5" rx="1.7" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="405.7" cy="411.6" rx="1.8" ry="0.6" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="188.9" cy="410.8" rx="0.8" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="430.6" cy="442.8" rx="0.8" ry="1.3" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="377.7" cy="454.0" rx="1.2" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="219.7" cy="465.4" rx="1.7" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="283.7" cy="452.6" rx="1.8" ry="1.2" fill="#b87532" opacity=".30"/>
+<ellipse cx="227.8" cy="426.0" rx="1.6" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="294.1" cy="412.1" rx="1.5" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="390.7" cy="408.2" rx="1.1" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="391.1" cy="322.4" rx="1.9" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="189.2" cy="444.0" rx="1.9" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="179.6" cy="329.3" rx="1.1" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="288.8" cy="300.8" rx="1.3" ry="0.8" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="221.9" cy="439.4" rx="0.7" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="378.9" cy="389.8" rx="1.6" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="156.0" cy="388.6" rx="2.2" ry="1.2" fill="#b87532" opacity=".30"/>
+<ellipse cx="341.9" cy="441.2" rx="1.6" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="226.3" cy="313.4" rx="1.6" ry="0.9" fill="#b87532" opacity=".30"/>
+<ellipse cx="334.9" cy="447.9" rx="1.4" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="382.3" cy="372.8" rx="1.3" ry="0.6" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="237.1" cy="299.1" rx="1.8" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="447.2" cy="407.6" rx="1.2" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="380.4" cy="297.4" rx="0.9" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="305.5" cy="386.8" rx="2.0" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="402.0" cy="299.4" rx="1.5" ry="0.9" fill="#b87532" opacity=".30"/>
+<ellipse cx="483.2" cy="336.0" rx="1.7" ry="0.8" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="166.6" cy="381.5" rx="2.0" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="365.9" cy="357.7" rx="2.0" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="192.7" cy="403.4" rx="1.7" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="334.9" cy="326.6" rx="1.0" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="310.9" cy="401.2" rx="1.1" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="325.5" cy="468.5" rx="1.1" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="356.7" cy="462.7" rx="1.5" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="263.8" cy="374.6" rx="1.3" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="295.9" cy="359.3" rx="0.9" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="427.4" cy="402.6" rx="1.4" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="191.8" cy="456.9" rx="1.2" ry="1.3" fill="#b87532" opacity=".30"/>
+<ellipse cx="414.7" cy="304.1" rx="1.1" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="278.6" cy="354.6" rx="1.5" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="436.1" cy="348.6" rx="1.2" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="375.8" cy="470.4" rx="1.9" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="446.6" cy="331.9" rx="1.2" ry="0.6" fill="#eaa657" opacity=".30"/>
+<ellipse cx="343.3" cy="339.0" rx="0.9" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="370.7" cy="316.6" rx="2.0" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="351.3" cy="402.0" rx="1.9" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="343.0" cy="324.5" rx="1.1" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="247.8" cy="436.1" rx="1.4" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="301.9" cy="451.0" rx="1.4" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="435.7" cy="351.9" rx="0.8" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="357.4" cy="418.2" rx="1.1" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="393.9" cy="458.1" rx="0.8" ry="0.7" fill="#b87532" opacity=".30"/>
+<ellipse cx="392.1" cy="304.8" rx="1.9" ry="0.7" fill="#b87532" opacity=".30"/>
+<ellipse cx="264.3" cy="439.8" rx="2.0" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="409.7" cy="290.2" rx="1.0" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="443.2" cy="396.3" rx="2.1" ry="0.6" fill="#eaa657" opacity=".30"/>
+<ellipse cx="294.7" cy="441.4" rx="1.0" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="336.0" cy="383.8" rx="1.6" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="225.8" cy="384.4" rx="1.2" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="245.6" cy="334.9" rx="0.9" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="460.7" cy="409.6" rx="1.3" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="424.8" cy="412.8" rx="1.2" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="364.2" cy="470.9" rx="0.9" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="239.0" cy="373.8" rx="0.8" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="155.5" cy="399.7" rx="1.2" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="416.2" cy="392.5" rx="1.7" ry="0.9" fill="#b87532" opacity=".30"/>
+<ellipse cx="402.8" cy="394.8" rx="1.1" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="332.4" cy="352.4" rx="1.4" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="405.6" cy="450.4" rx="1.8" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="164.9" cy="379.9" rx="1.5" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="301.1" cy="310.7" rx="1.0" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="194.0" cy="342.3" rx="1.8" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="463.3" cy="428.4" rx="1.4" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="427.4" cy="456.3" rx="2.1" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="439.9" cy="299.7" rx="0.8" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="266.8" cy="311.1" rx="1.5" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="364.0" cy="395.0" rx="1.4" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="321.1" cy="366.3" rx="1.6" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="172.5" cy="314.6" rx="1.4" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="166.5" cy="470.0" rx="2.1" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="465.1" cy="443.5" rx="2.0" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="484.4" cy="423.3" rx="0.7" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="316.7" cy="464.3" rx="1.6" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="267.0" cy="399.2" rx="1.2" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="476.6" cy="300.3" rx="1.5" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="223.6" cy="402.2" rx="1.2" ry="0.6" fill="#eaa657" opacity=".30"/>
+<ellipse cx="204.6" cy="297.0" rx="1.7" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="308.0" cy="447.7" rx="1.3" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="242.3" cy="366.6" rx="1.1" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="447.0" cy="295.5" rx="1.7" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="404.1" cy="290.6" rx="1.7" ry="1.2" fill="#b87532" opacity=".30"/>
+<ellipse cx="384.1" cy="357.8" rx="1.9" ry="0.6" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="362.1" cy="432.2" rx="1.9" ry="0.7" fill="#b87532" opacity=".30"/>
+<ellipse cx="320.5" cy="326.9" rx="2.1" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="330.7" cy="288.6" rx="1.8" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="486.9" cy="314.2" rx="1.4" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="455.6" cy="343.9" rx="1.1" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="466.4" cy="380.9" rx="1.1" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="268.7" cy="470.1" rx="1.0" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="397.1" cy="399.7" rx="1.6" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="407.0" cy="419.1" rx="1.3" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="220.8" cy="303.0" rx="1.1" ry="1.3" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="322.9" cy="332.7" rx="1.1" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="264.8" cy="360.9" rx="1.6" ry="1.2" fill="#b87532" opacity=".30"/>
+<ellipse cx="358.0" cy="324.9" rx="1.1" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="345.6" cy="294.6" rx="1.1" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="369.4" cy="409.5" rx="2.0" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="347.7" cy="326.3" rx="0.9" ry="0.9" fill="#b87532" opacity=".30"/>
+<ellipse cx="440.2" cy="415.5" rx="1.3" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="357.0" cy="353.9" rx="2.2" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="422.0" cy="360.4" rx="0.9" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="410.3" cy="412.8" rx="1.0" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="461.9" cy="432.3" rx="0.9" ry="0.7" fill="#b87532" opacity=".30"/>
+<ellipse cx="366.8" cy="419.9" rx="2.2" ry="0.6" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="421.1" cy="448.6" rx="1.7" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="195.2" cy="434.4" rx="1.8" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="355.6" cy="343.4" rx="1.6" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="355.9" cy="353.3" rx="1.6" ry="0.9" fill="#b87532" opacity=".30"/>
+<ellipse cx="396.1" cy="468.1" rx="2.0" ry="1.3" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="180.8" cy="288.4" rx="1.0" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="347.4" cy="412.6" rx="0.9" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="184.2" cy="441.3" rx="1.6" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="228.7" cy="388.9" rx="1.8" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="361.7" cy="369.4" rx="1.6" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="161.3" cy="426.6" rx="1.0" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="474.4" cy="413.9" rx="1.4" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="266.0" cy="332.8" rx="1.4" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="241.3" cy="406.4" rx="2.1" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="189.4" cy="303.7" rx="1.2" ry="0.9" fill="#eaa657" opacity=".30"/>
+<ellipse cx="223.8" cy="404.8" rx="2.2" ry="0.7" fill="#b87532" opacity=".30"/>
+<ellipse cx="234.9" cy="314.8" rx="1.5" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="438.5" cy="337.2" rx="1.2" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="320.0" cy="344.8" rx="0.9" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="345.9" cy="404.5" rx="1.5" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="383.6" cy="356.0" rx="1.4" ry="0.8" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="221.3" cy="386.2" rx="1.3" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="360.8" cy="344.7" rx="1.3" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="280.9" cy="339.8" rx="1.5" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="190.8" cy="380.1" rx="0.8" ry="0.8" fill="#eaa657" opacity=".30"/>
+<ellipse cx="345.7" cy="464.0" rx="1.7" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="328.6" cy="413.4" rx="0.9" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="299.8" cy="361.1" rx="1.8" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="406.5" cy="355.1" rx="1.3" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="244.6" cy="439.1" rx="1.1" ry="0.9" fill="#b87532" opacity=".30"/>
+<ellipse cx="326.9" cy="297.8" rx="1.8" ry="1.3" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="371.4" cy="335.5" rx="1.1" ry="0.8" fill="#b87532" opacity=".30"/>
+<ellipse cx="313.2" cy="437.4" rx="1.3" ry="1.3" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="456.7" cy="343.1" rx="2.0" ry="1.3" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="156.5" cy="359.1" rx="1.8" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="225.3" cy="337.3" rx="1.9" ry="1.1" fill="#b87532" opacity=".30"/>
+<ellipse cx="336.4" cy="415.6" rx="2.0" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="399.1" cy="336.9" rx="1.2" ry="0.7" fill="#eaa657" opacity=".30"/>
+<ellipse cx="303.9" cy="417.8" rx="1.9" ry="1.0" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="364.0" cy="386.0" rx="2.2" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="168.6" cy="331.4" rx="1.8" ry="0.6" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="289.6" cy="395.8" rx="1.2" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="168.5" cy="367.1" rx="0.8" ry="1.3" fill="#eaa657" opacity=".30"/>
+<ellipse cx="409.6" cy="469.8" rx="1.6" ry="0.8" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="469.0" cy="462.4" rx="1.7" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="190.2" cy="297.1" rx="1.9" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="226.4" cy="403.4" rx="1.7" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="375.8" cy="403.7" rx="1.7" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="205.2" cy="381.7" rx="2.0" ry="1.0" fill="#eaa657" opacity=".30"/>
+<ellipse cx="486.1" cy="426.2" rx="1.6" ry="1.3" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="342.0" cy="399.2" rx="1.4" ry="1.2" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="248.0" cy="426.7" rx="1.0" ry="0.9" fill="#b87532" opacity=".30"/>
+<ellipse cx="440.2" cy="399.3" rx="2.2" ry="0.9" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="220.3" cy="341.2" rx="1.8" ry="1.2" fill="#eaa657" opacity=".30"/>
+<ellipse cx="256.9" cy="316.9" rx="1.3" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="218.9" cy="434.9" rx="1.2" ry="0.6" fill="#b87532" opacity=".30"/>
+<ellipse cx="370.3" cy="361.7" rx="1.7" ry="0.7" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="286.5" cy="297.5" rx="1.1" ry="1.0" fill="#b87532" opacity=".30"/>
+<ellipse cx="264.8" cy="321.8" rx="1.5" ry="1.1" fill="#ffe9b9" opacity=".30"/>
+<ellipse cx="155.1" cy="380.9" rx="0.8" ry="1.1" fill="#eaa657" opacity=".30"/>
+<ellipse cx="306.2" cy="438.0" rx="1.8" ry="0.7" fill="#ffe9b9" opacity=".30"/></g>
+  <path d="M159 315V420C161 432 172 441 192 449" stroke="#fffaf0" stroke-width="2.5" stroke-opacity=".6" fill="none"/>
+  <path d="M485 319V422C483 438 462 450 436 458" stroke="#c49558" stroke-width="2" stroke-opacity=".2" fill="none"/>
+</g>
+<ellipse cx="320" cy="276" rx="170" ry="56" fill="url(#vc-top)"/>
+<path d="M151 275C151 307 227 332 320 332S489 307 489 275" fill="none" stroke="#fff9ee" stroke-width="7" stroke-linecap="round"/>
+<path d="M179 271C193 247 241 234 288 233" stroke="#fffef9" stroke-width="3" fill="none" opacity=".85"/>
+<!-- A restrained blueberry compote crescent beneath fresh fruit. -->
+<path d="M184 264C207 236 250 229 280 233C253 240 227 253 214 271C204 283 191 283 184 264Z" fill="#5c285d"/>
+<path d="M198 255Q226 237 262 236" fill="none" stroke="#ae5a90" stroke-width="2" opacity=".8"/>
+<!-- Two physical contact points match the 18 candle stems exactly. -->
+<g class="candle-contact" aria-hidden="true">
+  <ellipse cx="293" cy="275" rx="5" ry="2" fill="#bc905b" opacity=".35"/>
+  <ellipse cx="347" cy="275" rx="5" ry="2" fill="#bc905b" opacity=".35"/>
+</g>
+<use href="#vc-leaf" transform="translate(394 240) rotate(-20) scale(0.8)"/>
+<use href="#vc-leaf" transform="translate(418 257) rotate(12) scale(0.76)"/>
+<use href="#vc-leaf" transform="translate(220 265) rotate(-132) scale(0.74)"/>
+<use href="#vc-rosette" transform="translate(248 233) rotate(-12) scale(0.85)"/>
+<use href="#vc-rosette" transform="translate(378 230) rotate(15) scale(0.82)"/>
+<use href="#vc-rosette" transform="translate(434 262) rotate(17) scale(0.86)"/>
+<use href="#vc-rosette" transform="translate(197 279) rotate(-15) scale(0.86)"/>
+<use href="#vc-blueberry" transform="translate(271 227) rotate(-19) scale(0.76)"/>
+<use href="#vc-blueberry" transform="translate(224 240) rotate(16) scale(0.83)"/>
+<use href="#vc-blueberry" transform="translate(252 252) rotate(-14) scale(0.92)"/>
+<use href="#vc-blueberry" transform="translate(199 259) rotate(19) scale(0.87)"/>
+<use href="#vc-blueberry" transform="translate(227 270) rotate(-28) scale(1.03)"/>
+<use href="#vc-blueberry" transform="translate(405 244) rotate(12) scale(0.89)"/>
+<use href="#vc-blueberry" transform="translate(422 267) rotate(25) scale(1.02)"/>
+<use href="#vc-blueberry" transform="translate(388 266) rotate(-30) scale(0.85)"/>
+<use href="#vc-blueberry" transform="translate(401 287) rotate(18) scale(0.94)"/>
+<use href="#vc-rosette" transform="translate(211 298) rotate(-8) scale(0.9)"/>
+<use href="#vc-rosette" transform="translate(251 316) rotate(-4) scale(1.0)"/>
+<use href="#vc-rosette" transform="translate(302 323) rotate(5) scale(1.01)"/>
+<use href="#vc-rosette" transform="translate(351 320) rotate(7) scale(0.95)"/>
+<use href="#vc-rosette" transform="translate(448 292) rotate(18) scale(0.92)"/>
+<use href="#vc-blueberry" transform="translate(277 309) rotate(14) scale(0.74)"/>
+<use href="#vc-blueberry" transform="translate(369 311) rotate(-22) scale(0.85)"/>
+<!-- Fine ivory piping at the base of the cake. -->
+<ellipse cx="155.00" cy="422.00" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-9.2 155.00 422.00)"/>
+<ellipse cx="156.54" cy="429.22" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-8.4 156.54 429.22)"/>
+<ellipse cx="161.12" cy="436.30" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-7.6 161.12 436.30)"/>
+<ellipse cx="168.66" cy="443.12" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-6.8 168.66 443.12)"/>
+<ellipse cx="179.02" cy="449.54" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-6.0 179.02 449.54)"/>
+<ellipse cx="192.01" cy="455.45" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-5.2 192.01 455.45)"/>
+<ellipse cx="207.38" cy="460.73" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-4.4 207.38 460.73)"/>
+<ellipse cx="224.85" cy="465.30" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-3.6 224.85 465.30)"/>
+<ellipse cx="244.09" cy="469.06" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-2.8 244.09 469.06)"/>
+<ellipse cx="264.74" cy="471.94" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-2.0 264.74 471.94)"/>
+<ellipse cx="286.43" cy="473.89" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-1.2 286.43 473.89)"/>
+<ellipse cx="308.74" cy="474.88" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(-0.4 308.74 474.88)"/>
+<ellipse cx="331.26" cy="474.88" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(0.4 331.26 474.88)"/>
+<ellipse cx="353.57" cy="473.89" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(1.2 353.57 473.89)"/>
+<ellipse cx="375.26" cy="471.94" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(2.0 375.26 471.94)"/>
+<ellipse cx="395.91" cy="469.06" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(2.8 395.91 469.06)"/>
+<ellipse cx="415.15" cy="465.30" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(3.6 415.15 465.30)"/>
+<ellipse cx="432.62" cy="460.73" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(4.4 432.62 460.73)"/>
+<ellipse cx="447.99" cy="455.45" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(5.2 447.99 455.45)"/>
+<ellipse cx="460.98" cy="449.54" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(6.0 460.98 449.54)"/>
+<ellipse cx="471.34" cy="443.12" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(6.8 471.34 443.12)"/>
+<ellipse cx="478.88" cy="436.30" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(7.6 478.88 436.30)"/>
+<ellipse cx="483.46" cy="429.22" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(8.4 483.46 429.22)"/>
+<ellipse cx="485.00" cy="422.00" rx="7.7" ry="5.0" fill="url(#vc-dollop)" transform="rotate(9.2 485.00 422.00)"/>
+</svg>
               <button id="candle-button" class="candles" type="button" aria-label="吹熄十八歲生日蠟燭" disabled hidden>
                 <span class="wick wick-one" aria-hidden="true"></span><span class="wick wick-eight" aria-hidden="true"></span>
                 <span class="flame flame-one" aria-hidden="true"></span><span class="flame flame-eight" aria-hidden="true"></span>

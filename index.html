@@ -1108,7 +1108,7 @@ window.BIRTHDAY_CONFIG = {
     "祝願我們在未來可以在頂峰相見！"
   ],
   finalMessage: "祝福你的未來一切順心",
-  typingSpeed: 110      // 注音按鍵的基準間隔（毫秒）；另有選字、標點與分段停頓。
+  typingSpeed: 40       // 注音按鍵的基準間隔（毫秒）；另有選字、標點與分段停頓。
 };
 
 </script>
@@ -1125,7 +1125,7 @@ window.BIRTHDAY_CONFIG = {
   const letter = Array.isArray(settings.letter) && settings.letter.length
     ? settings.letter.map(String).join('\n\n')
     : '十八歲，生日快樂。\n願你的十八歲，有光、有笑聲，有無限的未來，也有勇敢做夢的自由。';
-  const typingSpeed = clamp(settings.typingSpeed, 70, 220, 110);
+  const typingSpeed = clamp(settings.typingSpeed, 25, 120, 40);
   let phase = 'welcome';
   let typedCount = 0;
   let typingTimer = null;
@@ -1413,10 +1413,10 @@ window.BIRTHDAY_CONFIG = {
     clearLetterComposition();
     typedCount++;
     if (typedCount >= characters.length) { completeLetter(); return; }
-    const pause = /[。！？；.!?;]/.test(character) ? 850
-      : /[，、：,:]/.test(character) ? 400
-      : character === '\n' ? (characters[typedCount] === '\n' ? 350 : 1150) : 0;
-    const thoughtPause = reading && typedCount % 19 === 0 ? 220 : 0;
+    const pause = /[。！？；.!?;]/.test(character) ? 340
+      : /[，、：,:]/.test(character) ? 160
+      : character === '\n' ? (characters[typedCount] === '\n' ? 140 : 460) : 0;
+    const thoughtPause = reading && typedCount % 19 === 0 ? 88 : 0;
     typingTimer = later(typeNext, humanDelay(typedCount, 0, 1.1) + pause + thoughtPause);
   }
   function completeLetter() {

@@ -560,6 +560,40 @@ body[data-phase="finale"] #finale { animation: none !important; }
   text-underline-offset: .22em;
 }
 </style>
+<style id="gold-letter-title-refinement">
+/* Lustre lives inside the title glyphs; no panel or fast flashing. */
+#letter-title.gold-letter-title, #dialog-title.gold-letter-title {
+  color: #f0d28c !important;
+  font-weight: 600 !important;
+  letter-spacing: .10em !important;
+  text-shadow: 0 1px 1px rgba(112,72,20,.3), 0 0 18px rgba(235,197,111,.12);
+  background: transparent;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  #letter-title.gold-letter-title, #dialog-title.gold-letter-title {
+    background-image:
+      radial-gradient(ellipse at 33% 42%, rgba(255,253,224,.88) 0 1.5%, transparent 4%),
+      radial-gradient(ellipse at 73% 58%, rgba(255,249,216,.65) 0 1%, transparent 3%),
+      linear-gradient(110deg, #d6ac52 0%, #f6df9c 19%, #c69539 36%, #ffecc0 46%, #fff8dc 49%, #e8c36c 54%, #c99a43 72%, #f4da91 100%);
+    background-size: 160% 100%, 190% 100%, 240% 100%;
+    background-position: 0% 50%, 30% 50%, 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent;
+    animation: letter-gold-lustre 9s ease-in-out infinite alternate;
+  }
+}
+@keyframes letter-gold-lustre {
+  to { background-position: 100% 50%, 80% 50%, 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #letter-title.gold-letter-title, #dialog-title.gold-letter-title {
+    animation: none !important;
+    background-position: 45% 50%, 45% 50%, 45% 50%;
+  }
+}
+</style>
 </head>
 <body data-phase="welcome" data-theme="03_Midnight_Wishes">
   <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
@@ -648,7 +682,7 @@ body[data-phase="finale"] #finale { animation: none !important; }
           <div class="card-corner" aria-hidden="true"><svg><use href="#pet-cat"/></svg></div><div class="card-spine" aria-hidden="true"></div>
           <div class="left-column">
             <article id="letter-copy" class="letter-copy" aria-labelledby="letter-title">
-              <h2 id="letter-title" tabindex="-1"><span id="recipient"></span>！<br>十八歲生日快樂！！！</h2>
+              <h2 id="letter-title" class="gold-letter-title" tabindex="-1">五福臨門！！！</h2>
               <div class="letter-text-wrap"><p id="letter-measure" class="typed-letter letter-measure" aria-hidden="true"></p><p id="typed-letter" class="typed-letter" aria-hidden="true"></p><p id="accessible-letter" class="sr-only"></p></div>
               <div id="letter-signature" class="letter-signature" hidden><span class="signature-line"></span><span id="signature-name"></span><svg aria-hidden="true"><use href="#i-star"/></svg></div>
               
@@ -1067,7 +1101,7 @@ body[data-phase="finale"] #finale { animation: none !important; }
       </section>
     </main>
   </div>
-  <dialog id="letter-dialog" aria-labelledby="dialog-title"><div class="dialog-toolbar"><span><svg aria-hidden="true"><use href="#i-paw"/></svg>再讀一次，寫給你的話</span><button id="close-letter" class="text-button" type="button" autofocus>關閉信件 ×</button></div><article><p class="eyebrow">寫給家祺祺的生日祝福</p><h2 id="dialog-title">家祺祺！<br>十八歲生日快樂！！！</h2><p id="dialog-letter"></p><p id="dialog-signature"></p></article></dialog>
+  <dialog id="letter-dialog" aria-labelledby="dialog-title"><div class="dialog-toolbar"><span><svg aria-hidden="true"><use href="#i-paw"/></svg>再讀一次，寫給你的話</span><button id="close-letter" class="text-button" type="button" autofocus>關閉信件 ×</button></div><article><p class="eyebrow">寫給家祺祺的生日祝福</p><h2 id="dialog-title" class="gold-letter-title">五福臨門！！！</h2><p id="dialog-letter"></p><p id="dialog-signature"></p></article></dialog>
   <dialog id="private-choice-dialog" class="wish-share-dialog private-choice-dialog" aria-labelledby="private-choice-title" aria-describedby="private-choice-disclosure">
     <div class="dialog-toolbar"><span><svg aria-hidden="true"><use href="#i-heart"/></svg>關於你的小秘密</span><button id="cancel-private-choice" class="text-button" type="button" autofocus>先不要 ×</button></div>
     <div class="share-review">
@@ -1101,12 +1135,12 @@ window.BIRTHDAY_CONFIG = {
   recipient: '家祺祺',
   signature: '默默在背後支持你的朋友~',
   letter: [
-    "恭喜你十八歲了！新的一歲，希望你可以繼續照著自己的步調，去看看更大的世界，有想追的目標、有笑聲，也有做喜歡的事的自由。",
-    "祝福你學測順利！那些認真、努力準備的過往，必定能在考場上派上用場，讓你考上理想的大學，進到心之所嚮的科系，不留遺憾。",
-    "之後到了新的校園，希望你能交到新朋友，也能順利克服新的挑戰。往後每一步雖然不一定馬上就有答案，但祝福你一直有勇氣去嘗試，慢慢找到屬於自己最完美的答案。",
-    "還有，別忘了要適度的休息！讀書努力固然是好事，不過累的時候也要適度休息，可以來找我聊點廢廢的東西或是分享最近的趣事，我隨時都在。",
-    "祝願我們在未來可以在頂峰相見！"
-  ],
+    "祝福你學測順利，繁星一階就上，順利進到自己心中理想的大學校系。也祝你可以在大學交到新朋友，克服新的困難，並早戰勝內心的恐懼，不再焦慮！",
+    "祝福你的未來在一路逆風後終會抵達目的地，太順遂的人生是無趣的，所以願你未來的路是坑坑疤疤充滿挑戰，但你一定能夠征服這趟旅程的！",
+    "祝福你長命百歲壽比南山（誤 哈哈哈 好啦，祝福你身體健康頭好壯壯，沒事讀書讀到不想讀的時候可以起來走走，運動運動，可以跟你阿嬤搶跑步機（x 但反正就是不只讀書。也要保持身體健康喔！",
+    "祝福你的未來是充滿歡笑和趣味的，讀書讀累了就要過度休息不用凡事都追求完美，有時候你要接收一點廢廢的芝士或是想分享最近發生的趣事都可以來找我（雖然說剩下這幾天確實還是以讀書為重，不過之後啦哈哈），我隨時都在！",
+    "最後，祝福你的素描技法越來越好（雖然我也不知為啥是素描哈哈），能在未來成為大大畫家（我要當頭號粉絲）btw也祝你可以發展出屬於自己獨特的神秘畫風！"
+],
   finalMessage: "祝福你的未來一切順心",
   typingSpeed: 40       // 注音按鍵的基準間隔（毫秒）；另有選字、標點與分段停頓。
 };
@@ -1137,8 +1171,12 @@ window.BIRTHDAY_CONFIG = {
   // Curated for this letter (including 步調 / 還有 / 屬於 / 科系 / 東西).
   // These are IME dictionary tones, not spoken tone-sandhi spellings.
   // Unknown characters in future edits are committed directly, never guessed.
-  const zhuyinReadings = {"家": "ㄐㄧㄚ", "祺": "ㄑㄧˊ", "默": "ㄇㄛˋ", "在": "ㄗㄞˋ", "背": "ㄅㄟˋ", "後": "ㄏㄡˋ", "支": "ㄓ", "持": "ㄔˊ", "你": "ㄋㄧˇ", "的": "˙ㄉㄜ", "朋": "ㄆㄥˊ", "友": "ㄧㄡˇ", "恭": "ㄍㄨㄥ", "喜": "ㄒㄧˇ", "十": "ㄕˊ", "八": "ㄅㄚ", "歲": "ㄙㄨㄟˋ", "了": "˙ㄌㄜ", "新": "ㄒㄧㄣ", "一": "ㄧ", "希": "ㄒㄧ", "望": "ㄨㄤˋ", "可": "ㄎㄜˇ", "以": "ㄧˇ", "繼": "ㄐㄧˋ", "續": "ㄒㄩˋ", "照": "ㄓㄠˋ", "著": "˙ㄓㄜ", "自": "ㄗˋ", "己": "ㄐㄧˇ", "步": "ㄅㄨˋ", "調": "ㄉㄧㄠˋ", "去": "ㄑㄩˋ", "看": "ㄎㄢˋ", "更": "ㄍㄥˋ", "大": "ㄉㄚˋ", "世": "ㄕˋ", "界": "ㄐㄧㄝˋ", "有": "ㄧㄡˇ", "想": "ㄒㄧㄤˇ", "追": "ㄓㄨㄟ", "目": "ㄇㄨˋ", "標": "ㄅㄧㄠ", "笑": "ㄒㄧㄠˋ", "聲": "ㄕㄥ", "也": "ㄧㄝˇ", "做": "ㄗㄨㄛˋ", "歡": "ㄏㄨㄢ", "事": "ㄕˋ", "由": "ㄧㄡˊ", "祝": "ㄓㄨˋ", "福": "ㄈㄨˊ", "學": "ㄒㄩㄝˊ", "測": "ㄘㄜˋ", "順": "ㄕㄨㄣˋ", "利": "ㄌㄧˋ", "那": "ㄋㄚˋ", "些": "ㄒㄧㄝ", "認": "ㄖㄣˋ", "真": "ㄓㄣ", "努": "ㄋㄨˇ", "力": "ㄌㄧˋ", "準": "ㄓㄨㄣˇ", "備": "ㄅㄟˋ", "過": "ㄍㄨㄛˋ", "往": "ㄨㄤˇ", "必": "ㄅㄧˋ", "定": "ㄉㄧㄥˋ", "能": "ㄋㄥˊ", "考": "ㄎㄠˇ", "場": "ㄔㄤˇ", "上": "ㄕㄤˋ", "派": "ㄆㄞˋ", "用": "ㄩㄥˋ", "讓": "ㄖㄤˋ", "理": "ㄌㄧˇ", "進": "ㄐㄧㄣˋ", "到": "ㄉㄠˋ", "心": "ㄒㄧㄣ", "之": "ㄓ", "所": "ㄙㄨㄛˇ", "嚮": "ㄒㄧㄤˋ", "科": "ㄎㄜ", "系": "ㄒㄧˋ", "不": "ㄅㄨˋ", "留": "ㄌㄧㄡˊ", "遺": "ㄧˊ", "憾": "ㄏㄢˋ", "校": "ㄒㄧㄠˋ", "園": "ㄩㄢˊ", "交": "ㄐㄧㄠ", "克": "ㄎㄜˋ", "服": "ㄈㄨˊ", "挑": "ㄊㄧㄠˇ", "戰": "ㄓㄢˋ", "每": "ㄇㄟˇ", "雖": "ㄙㄨㄟ", "然": "ㄖㄢˊ", "馬": "ㄇㄚˇ", "就": "ㄐㄧㄡˋ", "答": "ㄉㄚˊ", "案": "ㄢˋ", "但": "ㄉㄢˋ", "直": "ㄓˊ", "勇": "ㄩㄥˇ", "氣": "ㄑㄧˋ", "嘗": "ㄔㄤˊ", "試": "ㄕˋ", "慢": "ㄇㄢˋ", "找": "ㄓㄠˇ", "屬": "ㄕㄨˇ", "於": "ㄩˊ", "最": "ㄗㄨㄟˋ", "完": "ㄨㄢˊ", "美": "ㄇㄟˇ", "還": "ㄏㄞˊ", "別": "ㄅㄧㄝˊ", "忘": "ㄨㄤˋ", "要": "ㄧㄠˋ", "適": "ㄕˋ", "度": "ㄉㄨˋ", "休": "ㄒㄧㄡ", "息": "ㄒㄧˊ", "讀": "ㄉㄨˊ", "書": "ㄕㄨ", "固": "ㄍㄨˋ", "是": "ㄕˋ", "好": "ㄏㄠˇ", "累": "ㄌㄟˋ", "時": "ㄕˊ", "候": "˙ㄏㄡ", "來": "ㄌㄞˊ", "我": "ㄨㄛˇ", "聊": "ㄌㄧㄠˊ", "點": "ㄉㄧㄢˇ", "廢": "ㄈㄟˋ", "東": "ㄉㄨㄥ", "西": "ㄒㄧ", "或": "ㄏㄨㄛˋ", "分": "ㄈㄣ", "享": "ㄒㄧㄤˇ", "近": "ㄐㄧㄣˋ", "趣": "ㄑㄩˋ", "隨": "ㄙㄨㄟˊ", "都": "ㄉㄡ", "願": "ㄩㄢˋ", "們": "˙ㄇㄣ", "未": "ㄨㄟˋ", "頂": "ㄉㄧㄥˇ", "峰": "ㄈㄥ", "相": "ㄒㄧㄤ", "見": "ㄐㄧㄢˋ", "切": "ㄑㄧㄝˋ"};
+  const zhuyinReadings = {"家": "ㄐㄧㄚ", "祺": "ㄑㄧˊ", "默": "ㄇㄛˋ", "在": "ㄗㄞˋ", "背": "ㄅㄟˋ", "後": "ㄏㄡˋ", "支": "ㄓ", "持": "ㄔˊ", "你": "ㄋㄧˇ", "的": "˙ㄉㄜ", "朋": "ㄆㄥˊ", "友": "ㄧㄡˇ", "恭": "ㄍㄨㄥ", "喜": "ㄒㄧˇ", "十": "ㄕˊ", "八": "ㄅㄚ", "歲": "ㄙㄨㄟˋ", "了": "˙ㄌㄜ", "新": "ㄒㄧㄣ", "一": "ㄧ", "希": "ㄒㄧ", "望": "ㄨㄤˋ", "可": "ㄎㄜˇ", "以": "ㄧˇ", "繼": "ㄐㄧˋ", "續": "ㄒㄩˋ", "照": "ㄓㄠˋ", "著": "˙ㄓㄜ", "自": "ㄗˋ", "己": "ㄐㄧˇ", "步": "ㄅㄨˋ", "調": "ㄉㄧㄠˋ", "去": "ㄑㄩˋ", "看": "ㄎㄢˋ", "更": "ㄍㄥˋ", "大": "ㄉㄚˋ", "世": "ㄕˋ", "界": "ㄐㄧㄝˋ", "有": "ㄧㄡˇ", "想": "ㄒㄧㄤˇ", "追": "ㄓㄨㄟ", "目": "ㄇㄨˋ", "標": "ㄅㄧㄠ", "笑": "ㄒㄧㄠˋ", "聲": "ㄕㄥ", "也": "ㄧㄝˇ", "做": "ㄗㄨㄛˋ", "歡": "ㄏㄨㄢ", "事": "ㄕˋ", "由": "ㄧㄡˊ", "祝": "ㄓㄨˋ", "福": "ㄈㄨˊ", "學": "ㄒㄩㄝˊ", "測": "ㄘㄜˋ", "順": "ㄕㄨㄣˋ", "利": "ㄌㄧˋ", "那": "ㄋㄚˋ", "些": "ㄒㄧㄝ", "認": "ㄖㄣˋ", "真": "ㄓㄣ", "努": "ㄋㄨˇ", "力": "ㄌㄧˋ", "準": "ㄓㄨㄣˇ", "備": "ㄅㄟˋ", "過": "ㄍㄨㄛˋ", "往": "ㄨㄤˇ", "必": "ㄅㄧˋ", "定": "ㄉㄧㄥˋ", "能": "ㄋㄥˊ", "考": "ㄎㄠˇ", "場": "ㄔㄤˇ", "上": "ㄕㄤˋ", "派": "ㄆㄞˋ", "用": "ㄩㄥˋ", "讓": "ㄖㄤˋ", "理": "ㄌㄧˇ", "進": "ㄐㄧㄣˋ", "到": "ㄉㄠˋ", "心": "ㄒㄧㄣ", "之": "ㄓ", "所": "ㄙㄨㄛˇ", "嚮": "ㄒㄧㄤˋ", "科": "ㄎㄜ", "系": "ㄒㄧˋ", "不": "ㄅㄨˋ", "留": "ㄌㄧㄡˊ", "遺": "ㄧˊ", "憾": "ㄏㄢˋ", "校": "ㄒㄧㄠˋ", "園": "ㄩㄢˊ", "交": "ㄐㄧㄠ", "克": "ㄎㄜˋ", "服": "ㄈㄨˊ", "挑": "ㄊㄧㄠˇ", "戰": "ㄓㄢˋ", "每": "ㄇㄟˇ", "雖": "ㄙㄨㄟ", "然": "ㄖㄢˊ", "馬": "ㄇㄚˇ", "就": "ㄐㄧㄡˋ", "答": "ㄉㄚˊ", "案": "ㄢˋ", "但": "ㄉㄢˋ", "直": "ㄓˊ", "勇": "ㄩㄥˇ", "氣": "ㄑㄧˋ", "嘗": "ㄔㄤˊ", "試": "ㄕˋ", "慢": "ㄇㄢˋ", "找": "ㄓㄠˇ", "屬": "ㄕㄨˇ", "於": "ㄩˊ", "最": "ㄗㄨㄟˋ", "完": "ㄨㄢˊ", "美": "ㄇㄟˇ", "還": "ㄏㄞˊ", "別": "ㄅㄧㄝˊ", "忘": "ㄨㄤˋ", "要": "ㄧㄠˋ", "適": "ㄕˋ", "度": "ㄉㄨˋ", "休": "ㄒㄧㄡ", "息": "ㄒㄧˊ", "讀": "ㄉㄨˊ", "書": "ㄕㄨ", "固": "ㄍㄨˋ", "是": "ㄕˋ", "好": "ㄏㄠˇ", "累": "ㄌㄟˋ", "時": "ㄕˊ", "候": "˙ㄏㄡ", "來": "ㄌㄞˊ", "我": "ㄨㄛˇ", "聊": "ㄌㄧㄠˊ", "點": "ㄉㄧㄢˇ", "廢": "ㄈㄟˋ", "東": "ㄉㄨㄥ", "西": "ㄒㄧ", "或": "ㄏㄨㄛˋ", "分": "ㄈㄣ", "享": "ㄒㄧㄤˇ", "近": "ㄐㄧㄣˋ", "趣": "ㄑㄩˋ", "隨": "ㄙㄨㄟˊ", "都": "ㄉㄡ", "願": "ㄩㄢˋ", "們": "˙ㄇㄣ", "未": "ㄨㄟˋ", "頂": "ㄉㄧㄥˇ", "峰": "ㄈㄥ", "相": "ㄒㄧㄤ", "見": "ㄐㄧㄢˋ", "切": "ㄑㄧㄝˋ", "繁": "ㄈㄢˊ", "星": "ㄒㄧㄥ", "階": "ㄐㄧㄝ", "中": "ㄓㄨㄥ", "困": "ㄎㄨㄣˋ", "難": "ㄋㄢˊ", "並": "ㄅㄧㄥˋ", "早": "ㄗㄠˇ", "勝": "ㄕㄥˋ", "內": "ㄋㄟˋ", "恐": "ㄎㄨㄥˇ", "懼": "ㄐㄩˋ", "再": "ㄗㄞˋ", "焦": "ㄐㄧㄠ", "慮": "ㄌㄩˋ", "路": "ㄌㄨˋ", "逆": "ㄋㄧˋ", "風": "ㄈㄥ", "終": "ㄓㄨㄥ", "會": "ㄏㄨㄟˋ", "抵": "ㄉㄧˇ", "達": "ㄉㄚˊ", "地": "ㄉㄧˋ", "太": "ㄊㄞˋ", "遂": "ㄙㄨㄟˋ", "人": "ㄖㄣˊ", "生": "ㄕㄥ", "無": "ㄨˊ", "坑": "ㄎㄥ", "疤": "ㄅㄚ", "充": "ㄔㄨㄥ", "滿": "ㄇㄢˇ", "夠": "ㄍㄡˋ", "征": "ㄓㄥ", "這": "ㄓㄜˋ", "趟": "ㄊㄤˋ", "旅": "ㄌㄩˇ", "程": "ㄔㄥˊ", "長": "ㄔㄤˊ", "命": "ㄇㄧㄥˋ", "百": "ㄅㄞˇ", "壽": "ㄕㄡˋ", "比": "ㄅㄧˇ", "南": "ㄋㄢˊ", "山": "ㄕㄢ", "誤": "ㄨˋ", "哈": "ㄏㄚ", "啦": "˙ㄌㄚ", "身": "ㄕㄣ", "體": "ㄊㄧˇ", "健": "ㄐㄧㄢˋ", "康": "ㄎㄤ", "頭": "ㄊㄡˊ", "壯": "ㄓㄨㄤˋ", "沒": "ㄇㄟˊ", "起": "ㄑㄧˇ", "走": "ㄗㄡˇ", "運": "ㄩㄣˋ", "動": "ㄉㄨㄥˋ", "跟": "ㄍㄣ", "阿": "ㄚ", "嬤": "ㄇㄚ", "搶": "ㄑㄧㄤˇ", "跑": "ㄆㄠˇ", "機": "ㄐㄧ", "反": "ㄈㄢˇ", "正": "ㄓㄥˋ", "只": "ㄓˇ", "保": "ㄅㄠˇ", "喔": "ㄛ", "和": "ㄏㄜˊ", "味": "ㄨㄟˋ", "凡": "ㄈㄢˊ", "求": "ㄑㄧㄡˊ", "接": "ㄐㄧㄝ", "收": "ㄕㄡ", "芝": "ㄓ", "士": "ㄕˋ", "發": "ㄈㄚ", "說": "ㄕㄨㄛ", "剩": "ㄕㄥˋ", "下": "ㄒㄧㄚˋ", "幾": "ㄐㄧˇ", "天": "ㄊㄧㄢ", "確": "ㄑㄩㄝˋ", "實": "ㄕˊ", "為": "ㄨㄟˊ", "重": "ㄓㄨㄥˋ", "素": "ㄙㄨˋ", "描": "ㄇㄧㄠˊ", "技": "ㄐㄧˋ", "法": "ㄈㄚˇ", "越": "ㄩㄝˋ", "知": "ㄓ", "啥": "ㄕㄚˊ", "成": "ㄔㄥˊ", "畫": "ㄏㄨㄚˋ", "當": "ㄉㄤ", "號": "ㄏㄠˋ", "粉": "ㄈㄣˇ", "絲": "ㄙ", "展": "ㄓㄢˇ", "出": "ㄔㄨ", "獨": "ㄉㄨˊ", "特": "ㄊㄜˋ", "神": "ㄕㄣˊ", "秘": "ㄇㄧˋ", "五": "ㄨˇ", "臨": "ㄌㄧㄣˊ", "門": "ㄇㄣˊ"};
   const phraseReadings = [
+    ['繁星', ['ㄈㄢˊ', 'ㄒㄧㄥ']], ['長命百歲', ['ㄔㄤˊ', 'ㄇㄧㄥˋ', 'ㄅㄞˇ', 'ㄙㄨㄟˋ']],
+    ['壽比南山', ['ㄕㄡˋ', 'ㄅㄧˇ', 'ㄋㄢˊ', 'ㄕㄢ']], ['阿嬤', ['ㄚ', 'ㄇㄚ']],
+    ['畫風', ['ㄏㄨㄚˋ', 'ㄈㄥ']], ['為重', ['ㄨㄟˊ', 'ㄓㄨㄥˋ']],
+    ['為啥', ['ㄨㄟˋ', 'ㄕㄚˊ']], ['頭號', ['ㄊㄡˊ', 'ㄏㄠˋ']],
     ['照著', ['ㄓㄠˋ', '˙ㄓㄜ']], ['步調', ['ㄅㄨˋ', 'ㄉㄧㄠˋ']],
     ['還有', ['ㄏㄞˊ', 'ㄧㄡˇ']], ['屬於', ['ㄕㄨˇ', 'ㄩˊ']],
     ['科系', ['ㄎㄜ', 'ㄒㄧˋ']], ['東西', ['ㄉㄨㄥ', 'ㄒㄧ']],
@@ -1169,7 +1207,6 @@ window.BIRTHDAY_CONFIG = {
     return Math.round(typingSpeed * multiplier * rhythm[(index * 3 + key) % rhythm.length]);
   }
 
-  $('recipient').textContent = String(settings.recipient || '我的好朋友');
   $('signature-name').textContent = String(settings.signature || '一直站在你這邊的朋友');
   $('accessible-letter').textContent = letter;
   $('dialog-letter').textContent = letter;

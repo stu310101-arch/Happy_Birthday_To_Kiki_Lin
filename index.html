@@ -753,6 +753,21 @@ Copyright 2010-2012 Google Corporation.
   }
 }
 </style>
+<style id="birthday-reply-styles">
+.birthday-reply { width: min(100%, 660px); margin: 64px auto 12px; text-align: left; background: transparent; }
+#reply-title { margin: 0 0 18px; font-family: var(--heading-font); font-size: 30px; color: #ebcd86; }
+#reply-description, .reply-privacy, .reply-status { line-height: 1.9; overflow-wrap: anywhere; }
+#reply-form label { display: block; margin: 22px 0 8px; }
+#reply-message { display: block; width: 100%; min-height: 168px; resize: vertical; padding: 14px 16px; border: 1px solid var(--input-border); border-radius: 8px; background: #0c1626; color: #deca9a; font: 17px/1.9 var(--ui-font); }
+#reply-message:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+#reply-message[aria-invalid="true"] { border-color: var(--error); }
+.reply-count { text-align: right; margin: 5px 0 18px; font-size: 12px; color: var(--muted); }
+.reply-privacy { margin-top: 18px; font-size: 12px; color: var(--muted); }
+.reply-status { color: #dfc793; }
+#reply-review-dialog .share-review { padding: 26px; }
+.reply-preview { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 38vh; overflow-y: auto; padding: 8px 0; }
+.reply-review-actions { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 24px; }
+</style>
 </head>
 <body data-phase="welcome" data-theme="03_Midnight_Wishes">
   <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
@@ -1257,7 +1272,21 @@ Copyright 2010-2012 Google Corporation.
         <div class="final-actions"><button id="restart-button" class="button-primary" type="button"><span class="button-label">再過一次生日</span><svg aria-hidden="true"><use href="#i-replay"/></svg></button><button id="replay-song" class="text-button" type="button"><svg aria-hidden="true"><use href="#i-note"/></svg>重播生日歌</button></div>
         <div class="final-effects"><button class="text-button read-letter" type="button">再讀一次信</button><button id="confetti-toggle" class="text-button" type="button" aria-pressed="true" aria-label="暫停彩帶"><svg aria-hidden="true"><use href="#i-star"/></svg><span id="confetti-label">暫停彩帶</span></button></div>
         <p class="final-signoff">願我們在未來可以在頂峰相見！</p>
-      </section>
+      
+        <section class="birthday-reply" aria-labelledby="reply-title">
+          <h2 id="reply-title">回信</h2>
+          <p id="reply-description">你可以留言給網站製作者會有什麼悄悄話想說的可以打上來，稍等就會有🕊️幫你飛鴿傳書送給XuaN囉 </p>
+          <form id="reply-form" novalidate>
+            <label for="reply-message">想對 XuaN 說的話</label>
+            <textarea id="reply-message" name="reply" rows="6" maxlength="2000" required aria-describedby="reply-description reply-count reply-status" placeholder="把你的悄悄話寫在這裡…"></textarea>
+            <p id="reply-count" class="reply-count">0 / 2,000</p>
+            <div class="wish-honeypot" aria-hidden="true"><label for="reply-honey">請留白</label><input id="reply-honey" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+            <button id="review-reply" type="submit" class="button-primary">🕊️ 預覽回信</button>
+            <p class="reply-privacy">寄送前會先讓你確認內容、收件信箱與 FormSubmit 服務。回信文字只暫存在此頁；重播或回到封面會清除尚未送出的內容。</p>
+            <p id="reply-status" class="reply-status" role="status" tabindex="-1"></p>
+          </form>
+        </section>
+</section>
     </main>
   </div>
   <dialog id="letter-dialog" aria-labelledby="dialog-title"><div class="dialog-toolbar"><span><svg aria-hidden="true"><use href="#i-paw"/></svg>再讀一次，寫給你的話</span><button id="close-letter" class="text-button" type="button" autofocus>關閉信件 ×</button></div><article><p class="eyebrow">寫給家祺祺的生日祝福</p><h2 id="dialog-title" class="gold-letter-title">五福臨門！！！</h2><p id="dialog-letter"></p><p id="dialog-signature"></p></article></dialog>
@@ -1919,6 +1948,7 @@ function createWishDelivery({ configured = false, recipient = '', endpoint = '',
     }, reducedMotion.matches ? 220 : 1100);
   }
   function reset(toCover = false) {
+    document.dispatchEvent(new Event('birthday:reset'));
     ++shareGeneration;
     // A replay is a new card; an uncertain prior send stays locked against duplicates.
     if (!['sending', 'uncertain'].includes(wishDelivery.state)) wishDelivery = newWishDelivery();
@@ -2177,6 +2207,160 @@ function createWishDelivery({ configured = false, recipient = '', endpoint = '',
   // The first trusted interaction retries it; no separate music click is required.
   music.render();
   music.play('background', false, true);
+})();
+
+</script>
+
+  <dialog id="reply-review-dialog" class="wish-share-dialog" aria-labelledby="reply-review-title">
+    <div class="dialog-toolbar"><span>🕊️ 回信確認</span><button id="cancel-reply-top" type="button" class="text-button">返回修改 ×</button></div>
+    <article class="share-review">
+      <h2 id="reply-review-title">確認這封回信</h2>
+      <p>收件人：XuaN（<strong id="reply-recipient">stu310101@shsh.tw</strong>）</p>
+      <p>按「確認寄送給 XuaN」後，下方回信內容會傳給第三方 FormSubmit，由它轉寄至這個信箱。FormSubmit 也可能處理網路連線資料；請不要填入密碼、證件號碼或其他不想交給第三方的資訊。</p>
+      <p><a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit 隱私政策</a></p>
+      <p>回信內容：</p><p id="reply-preview" class="reply-preview"></p>
+      <p id="reply-delivery-status" role="status"></p>
+      <label id="reply-retry-consent" hidden><input id="reply-retry-check" type="checkbox"> 我已先確認是否收到，了解重送可能造成重複，仍要再寄一次。</label>
+      <div class="reply-review-actions"><button id="cancel-reply" type="button" class="text-button">返回修改</button><button id="confirm-reply" type="button" class="button-primary">確認寄送給 XuaN</button></div>
+    </article>
+  </dialog>
+
+<script id="birthday-reply-engine">
+/* Reply delivery is independent of wish sharing. No storage or automatic sending. */
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const replyRecipient = 'stu310101@shsh.tw';
+  function createReplyDelivery({ request, protocol, setTimer = setTimeout, clearTimer = clearTimeout, createAbort = () => new AbortController(), timeoutMs = 20000 } = {}) {
+    let state = 'idle';
+    const result = (status) => Object.freeze({ status, emailDeliveryConfirmed: false });
+    return Object.freeze({
+      get state() { return state; },
+      async submit(message, honey = '', retryUncertain = false) {
+        if (!['idle', 'rejected'].includes(state) && !(state === 'uncertain' && retryUncertain === true)) return result(state);
+        if (!['http:', 'https:'].includes(protocol)) return result('unsupported_origin');
+        if (typeof message !== 'string' || !message.trim() || message.length > 2000 || honey) return result('invalid_values');
+        if (typeof request !== 'function') return result('not_configured');
+        state = 'sending';
+        const controller = createAbort();
+        let timer;
+        const payload = { '回信內容': message, '收件人': replyRecipient, _subject: '生日網站回信｜給 XuaN 的悄悄話', _template: 'table', _honey: '' };
+        try {
+          const timeout = new Promise((resolve) => { timer = setTimer(() => { controller.abort(); resolve({ kind: 'timeout' }); }, timeoutMs); });
+          const operation = Promise.resolve().then(() => request('https://formsubmit.co/ajax/' + replyRecipient, {
+            method: 'POST', mode: 'cors', credentials: 'omit', cache: 'no-store', referrerPolicy: 'origin',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload), signal: controller.signal
+          })).then(async (response) => {
+            if (!response || !response.ok) return { kind: 'http_error', status: response?.status || 0 };
+            return { kind: 'response', data: await response.json() };
+          }).catch(() => ({ kind: 'network_error' }));
+          const outcome = await Promise.race([operation, timeout]);
+          if (outcome.kind === 'response') {
+            const data = outcome.data;
+            const message = typeof data?.message === 'string' ? data.message : '';
+            if (/activat|verif|confirm.{0,30}(?:email|form|address)/i.test(message)) state = 'activation_required';
+            else if (data?.success === true || data?.success === 'true') state = 'accepted';
+            else if (data?.success === false || data?.success === 'false') state = 'rejected';
+            else state = 'uncertain';
+          } else if (outcome.kind === 'http_error' && outcome.status >= 400 && outcome.status < 500) state = 'rejected';
+          else state = 'uncertain';
+          return result(state);
+        } finally { if (timer !== undefined) clearTimer(timer); }
+      }
+    });
+  }
+  const delivery = createReplyDelivery({ request: (url, options) => fetch(url, options), protocol: window.location.protocol });
+  let generation = 0;
+  let pendingReply = null;
+  let composing = false;
+  const messages = {
+    idle: '確認後才會寄送，目前還沒有送出。',
+    sending: '🕊️ 正在把回信交給 FormSubmit，請稍等一下。',
+    accepted: '🕊️ FormSubmit 已接受這封回信。尚未確認 XuaN 的信箱收到；這頁不會重複寄送。',
+    activation_required: 'FormSubmit 要求收件信箱先完成啟用，尚未確認回信已寄到信箱。請網站製作者查看啟用信。',
+    rejected: 'FormSubmit 沒有接受這封回信。內容仍保留著，你可以回去修改，或再次確認寄送。',
+    uncertain: '可能已送出，請先確認，重送可能重複。內容仍保留著；只有額外確認後才會手動重送，不會自動重試。',
+    unsupported_origin: '直接開啟 HTML 檔案時無法寄送，請從已部署的網站開啟。',
+    invalid_values: '請填寫 1–2,000 字的回信，不能只有空白。',
+    not_configured: '寄送服務目前無法使用，內容仍保留著。'
+  };
+  function renderReply(status = delivery.state) {
+    const sending = delivery.state === 'sending';
+    const maySend = ['idle', 'rejected', 'uncertain'].includes(delivery.state) && ['https:', 'http:'].includes(window.location.protocol);
+    $('reply-status').textContent = messages[status] || messages.uncertain;
+    $('reply-delivery-status').textContent = messages[status] || messages.uncertain;
+    $('review-reply').disabled = !maySend;
+    $('reply-retry-consent').hidden = delivery.state !== 'uncertain';
+    $('confirm-reply').disabled = !maySend || !pendingReply || (delivery.state === 'uncertain' && !$('reply-retry-check').checked);
+    $('confirm-reply').textContent = sending ? '寄送中…' : '確認寄送給 XuaN';
+    $('reply-message').disabled = sending;
+    $('cancel-reply').disabled = sending;
+    $('cancel-reply-top').disabled = sending;
+    $('reply-review-dialog').setAttribute('aria-busy', String(sending));
+  }
+  function dismissReply() {
+    if (delivery.state === 'sending') return;
+    $('reply-review-dialog').close();
+    $('review-reply').focus();
+  }
+  $('reply-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (document.body.dataset.phase !== 'finale' || composing || $('reply-review-dialog').open || !['idle', 'rejected', 'uncertain'].includes(delivery.state)) return;
+    const text = $('reply-message').value;
+    if (!text.trim() || text.length > 2000 || $('reply-honey').value) {
+      $('reply-message').setAttribute('aria-invalid', 'true');
+      renderReply('invalid_values'); $('reply-message').focus(); return;
+    }
+    $('reply-message').removeAttribute('aria-invalid');
+    pendingReply = Object.freeze({ message: text, recipient: replyRecipient });
+    $('reply-preview').textContent = pendingReply.message;
+    $('reply-recipient').textContent = pendingReply.recipient;
+    renderReply();
+    $('reply-review-dialog').showModal();
+    document.body.classList.add('dialog-open');
+  });
+  $('reply-message').addEventListener('compositionstart', () => { composing = true; });
+  $('reply-message').addEventListener('compositionend', () => { composing = false; });
+  $('reply-message').addEventListener('input', () => {
+    $('reply-message').removeAttribute('aria-invalid');
+    $('reply-count').textContent = $('reply-message').value.length + ' / 2,000';
+  });
+  $('reply-retry-check').addEventListener('change', () => renderReply());
+  $('cancel-reply').addEventListener('click', dismissReply);
+  $('cancel-reply-top').addEventListener('click', dismissReply);
+  $('reply-review-dialog').addEventListener('cancel', (event) => { if (delivery.state === 'sending') event.preventDefault(); });
+  $('reply-review-dialog').addEventListener('close', () => {
+    pendingReply = null; $('reply-retry-check').checked = false; $('reply-preview').textContent = '';
+    if (!document.querySelector('dialog[open]')) document.body.classList.remove('dialog-open');
+  });
+  $('reply-review-dialog').addEventListener('click', (event) => {
+    if (event.target !== $('reply-review-dialog')) return;
+    const rect = event.target.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dismissReply();
+  });
+  $('confirm-reply').addEventListener('click', async () => {
+    if (!pendingReply || document.body.dataset.phase !== 'finale' || !['idle', 'rejected', 'uncertain'].includes(delivery.state)) return;
+    const review = pendingReply;
+    const version = generation;
+    if (delivery.state === 'uncertain' && !$('reply-retry-check').checked) return;
+    const operation = delivery.submit(review.message, $('reply-honey').value, $('reply-retry-check').checked);
+    $('reply-retry-check').checked = false;
+    renderReply('sending');
+    const outcome = await operation;
+    if (version !== generation) { renderReply(); return; }
+    renderReply(outcome.status);
+    if (outcome.status === 'accepted') { $('reply-review-dialog').close(); $('reply-status').focus(); }
+  });
+  // Home/replay clears private draft text, but preserves the send lock.
+  // Closing the UI cannot recall an already transmitted request.
+  document.addEventListener('birthday:reset', () => {
+    generation++; pendingReply = null; composing = false;
+    if ($('reply-review-dialog').open) $('reply-review-dialog').close();
+    $('reply-form').reset(); $('reply-message').removeAttribute('aria-invalid');
+    $('reply-preview').textContent = ''; $('reply-count').textContent = '0 / 2,000';
+    renderReply();
+  });
+  renderReply(['https:', 'http:'].includes(window.location.protocol) ? 'idle' : 'unsupported_origin');
 })();
 
 </script>

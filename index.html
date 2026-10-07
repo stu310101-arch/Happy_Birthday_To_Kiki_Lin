@@ -533,7 +533,34 @@ body[data-phase="finale"] #finale { animation: none !important; }
   color: var(--link);
   letter-spacing: .02em;
 }
-</style></head>
+</style><style id="open-page-text-refinement">
+/* Open-page typography: decoration belongs to the scene, not text panels.
+   Real controls and modal surfaces retain their contrast and focus affordances. */
+.experience-shell, .welcome-copy, .intro-copy, .letter-copy, .letter-text-wrap,
+.typed-letter, .wish-copy, .receipt-copy, .share-review, .share-preview,
+.share-aside, .share-consent-detail, .wish-share-result,
+.final-message, .final-message p, #dialog-letter {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+.experience-shell::after, .card-spine, .card-corner { display: none !important; }
+.letter-actions { border-top: 0; }
+/* Composition is inline text, never an input, candidate window, or message card. */
+.ime-composition {
+  font-family: var(--ui-font), "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+  color: var(--heading-accent);
+  font-size: .86em;
+  letter-spacing: .035em;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-color: rgba(224,203,157,.5);
+  text-underline-offset: .22em;
+}
+</style>
+</head>
 <body data-phase="welcome" data-theme="03_Midnight_Wishes">
   <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
     <symbol id="i-star" viewBox="0 0 32 32"><path d="M16 1C17.7 12.6 19.4 14.3 31 16C19.4 17.7 17.7 19.4 16 31C14.3 19.4 12.6 17.7 1 16C12.6 14.3 14.3 12.6 16 1Z" fill="currentColor"/></symbol>
@@ -1081,7 +1108,7 @@ window.BIRTHDAY_CONFIG = {
     "祝願我們在未來可以在頂峰相見！"
   ],
   finalMessage: "祝福你的未來一切順心",
-  typingSpeed: 32       // 每個字的間隔，單位毫秒。全文會停留到讀者主動繼續。
+  typingSpeed: 110      // 注音按鍵的基準間隔（毫秒）；另有選字、標點與分段停頓。
 };
 
 </script>
@@ -1098,7 +1125,7 @@ window.BIRTHDAY_CONFIG = {
   const letter = Array.isArray(settings.letter) && settings.letter.length
     ? settings.letter.map(String).join('\n\n')
     : '十八歲，生日快樂。\n願你的十八歲，有光、有笑聲，有無限的未來，也有勇敢做夢的自由。';
-  const typingSpeed = clamp(settings.typingSpeed, 15, 150, 55);
+  const typingSpeed = clamp(settings.typingSpeed, 70, 220, 110);
   let phase = 'welcome';
   let typedCount = 0;
   let typingTimer = null;
@@ -1107,6 +1134,40 @@ window.BIRTHDAY_CONFIG = {
   let letterComplete = false;
   let composing = false;
   const characters = Array.from(letter);
+  // Curated for this letter (including 步調 / 還有 / 屬於 / 科系 / 東西).
+  // These are IME dictionary tones, not spoken tone-sandhi spellings.
+  // Unknown characters in future edits are committed directly, never guessed.
+  const zhuyinReadings = {"家": "ㄐㄧㄚ", "祺": "ㄑㄧˊ", "默": "ㄇㄛˋ", "在": "ㄗㄞˋ", "背": "ㄅㄟˋ", "後": "ㄏㄡˋ", "支": "ㄓ", "持": "ㄔˊ", "你": "ㄋㄧˇ", "的": "˙ㄉㄜ", "朋": "ㄆㄥˊ", "友": "ㄧㄡˇ", "恭": "ㄍㄨㄥ", "喜": "ㄒㄧˇ", "十": "ㄕˊ", "八": "ㄅㄚ", "歲": "ㄙㄨㄟˋ", "了": "˙ㄌㄜ", "新": "ㄒㄧㄣ", "一": "ㄧ", "希": "ㄒㄧ", "望": "ㄨㄤˋ", "可": "ㄎㄜˇ", "以": "ㄧˇ", "繼": "ㄐㄧˋ", "續": "ㄒㄩˋ", "照": "ㄓㄠˋ", "著": "˙ㄓㄜ", "自": "ㄗˋ", "己": "ㄐㄧˇ", "步": "ㄅㄨˋ", "調": "ㄉㄧㄠˋ", "去": "ㄑㄩˋ", "看": "ㄎㄢˋ", "更": "ㄍㄥˋ", "大": "ㄉㄚˋ", "世": "ㄕˋ", "界": "ㄐㄧㄝˋ", "有": "ㄧㄡˇ", "想": "ㄒㄧㄤˇ", "追": "ㄓㄨㄟ", "目": "ㄇㄨˋ", "標": "ㄅㄧㄠ", "笑": "ㄒㄧㄠˋ", "聲": "ㄕㄥ", "也": "ㄧㄝˇ", "做": "ㄗㄨㄛˋ", "歡": "ㄏㄨㄢ", "事": "ㄕˋ", "由": "ㄧㄡˊ", "祝": "ㄓㄨˋ", "福": "ㄈㄨˊ", "學": "ㄒㄩㄝˊ", "測": "ㄘㄜˋ", "順": "ㄕㄨㄣˋ", "利": "ㄌㄧˋ", "那": "ㄋㄚˋ", "些": "ㄒㄧㄝ", "認": "ㄖㄣˋ", "真": "ㄓㄣ", "努": "ㄋㄨˇ", "力": "ㄌㄧˋ", "準": "ㄓㄨㄣˇ", "備": "ㄅㄟˋ", "過": "ㄍㄨㄛˋ", "往": "ㄨㄤˇ", "必": "ㄅㄧˋ", "定": "ㄉㄧㄥˋ", "能": "ㄋㄥˊ", "考": "ㄎㄠˇ", "場": "ㄔㄤˇ", "上": "ㄕㄤˋ", "派": "ㄆㄞˋ", "用": "ㄩㄥˋ", "讓": "ㄖㄤˋ", "理": "ㄌㄧˇ", "進": "ㄐㄧㄣˋ", "到": "ㄉㄠˋ", "心": "ㄒㄧㄣ", "之": "ㄓ", "所": "ㄙㄨㄛˇ", "嚮": "ㄒㄧㄤˋ", "科": "ㄎㄜ", "系": "ㄒㄧˋ", "不": "ㄅㄨˋ", "留": "ㄌㄧㄡˊ", "遺": "ㄧˊ", "憾": "ㄏㄢˋ", "校": "ㄒㄧㄠˋ", "園": "ㄩㄢˊ", "交": "ㄐㄧㄠ", "克": "ㄎㄜˋ", "服": "ㄈㄨˊ", "挑": "ㄊㄧㄠˇ", "戰": "ㄓㄢˋ", "每": "ㄇㄟˇ", "雖": "ㄙㄨㄟ", "然": "ㄖㄢˊ", "馬": "ㄇㄚˇ", "就": "ㄐㄧㄡˋ", "答": "ㄉㄚˊ", "案": "ㄢˋ", "但": "ㄉㄢˋ", "直": "ㄓˊ", "勇": "ㄩㄥˇ", "氣": "ㄑㄧˋ", "嘗": "ㄔㄤˊ", "試": "ㄕˋ", "慢": "ㄇㄢˋ", "找": "ㄓㄠˇ", "屬": "ㄕㄨˇ", "於": "ㄩˊ", "最": "ㄗㄨㄟˋ", "完": "ㄨㄢˊ", "美": "ㄇㄟˇ", "還": "ㄏㄞˊ", "別": "ㄅㄧㄝˊ", "忘": "ㄨㄤˋ", "要": "ㄧㄠˋ", "適": "ㄕˋ", "度": "ㄉㄨˋ", "休": "ㄒㄧㄡ", "息": "ㄒㄧˊ", "讀": "ㄉㄨˊ", "書": "ㄕㄨ", "固": "ㄍㄨˋ", "是": "ㄕˋ", "好": "ㄏㄠˇ", "累": "ㄌㄟˋ", "時": "ㄕˊ", "候": "˙ㄏㄡ", "來": "ㄌㄞˊ", "我": "ㄨㄛˇ", "聊": "ㄌㄧㄠˊ", "點": "ㄉㄧㄢˇ", "廢": "ㄈㄟˋ", "東": "ㄉㄨㄥ", "西": "ㄒㄧ", "或": "ㄏㄨㄛˋ", "分": "ㄈㄣ", "享": "ㄒㄧㄤˇ", "近": "ㄐㄧㄣˋ", "趣": "ㄑㄩˋ", "隨": "ㄙㄨㄟˊ", "都": "ㄉㄡ", "願": "ㄩㄢˋ", "們": "˙ㄇㄣ", "未": "ㄨㄟˋ", "頂": "ㄉㄧㄥˇ", "峰": "ㄈㄥ", "相": "ㄒㄧㄤ", "見": "ㄐㄧㄢˋ", "切": "ㄑㄧㄝˋ"};
+  const phraseReadings = [
+    ['照著', ['ㄓㄠˋ', '˙ㄓㄜ']], ['步調', ['ㄅㄨˋ', 'ㄉㄧㄠˋ']],
+    ['還有', ['ㄏㄞˊ', 'ㄧㄡˇ']], ['屬於', ['ㄕㄨˇ', 'ㄩˊ']],
+    ['科系', ['ㄎㄜ', 'ㄒㄧˋ']], ['東西', ['ㄉㄨㄥ', 'ㄒㄧ']],
+    ['時候', ['ㄕˊ', '˙ㄏㄡ']], ['家祺祺', ['ㄐㄧㄚ', 'ㄑㄧˊ', 'ㄑㄧˊ']]
+  ];
+  const letterReadings = characters.map((character) => zhuyinReadings[character] || '');
+  for (const [phrase, readings] of phraseReadings) {
+    const phraseCharacters = Array.from(phrase);
+    for (let i = 0; i <= characters.length - phraseCharacters.length; i++) {
+      if (phraseCharacters.every((character, offset) => character === characters[i + offset])) {
+        readings.forEach((reading, offset) => { letterReadings[i + offset] = reading; });
+      }
+    }
+  }
+  // Neutral tone is typed last on a Zhuyin keyboard but displayed before the syllable.
+  function compositionKeys(reading) {
+    return Array.from(reading.startsWith('˙') ? reading.slice(1) + '˙' : reading);
+  }
+  let imeKeyIndex = 0;
+  let imeComposition = null;
+  function clearLetterComposition() {
+    imeKeyIndex = 0;
+    imeComposition = null;
+  }
+  function humanDelay(index, key, multiplier = 1) {
+    // Stable variation gives a human rhythm without random text or test flakiness.
+    const rhythm = [0.88, 1.16, 0.95, 1.30, 0.80, 1.07, 1.22, 0.93];
+    return Math.round(typingSpeed * multiplier * rhythm[(index * 3 + key) % rhythm.length]);
+  }
 
   $('recipient').textContent = String(settings.recipient || '我的好朋友');
   $('signature-name').textContent = String(settings.signature || '一直站在你這邊的朋友');
@@ -1329,16 +1390,40 @@ window.BIRTHDAY_CONFIG = {
   }
   function typeNext() {
     if (phase !== 'letter' || letterComplete) return;
-    typedCount += 1;
-    $('typed-letter').textContent = characters.slice(0, typedCount).join('');
+    if (reducedMotion.matches) { completeLetter(); return; }
+    const character = characters[typedCount];
+    const reading = letterReadings[typedCount];
+    const keys = compositionKeys(reading);
+    if (imeKeyIndex < keys.length) {
+      if (!imeComposition) {
+        imeComposition = document.createElement('span');
+        imeComposition.className = 'ime-composition';
+        imeComposition.setAttribute('aria-hidden', 'true');
+        $('typed-letter').appendChild(imeComposition);
+      }
+      imeKeyIndex++;
+      const partial = keys.slice(0, imeKeyIndex).join('');
+      imeComposition.textContent = partial.endsWith('˙') ? '˙' + partial.slice(0, -1) : partial;
+      // A short candidate-selection hesitation follows the completed syllable.
+      typingTimer = later(typeNext, humanDelay(typedCount, imeKeyIndex, imeKeyIndex === keys.length ? 1.9 : 1));
+      return;
+    }
+    if (imeComposition) imeComposition.remove();
+    $('typed-letter').appendChild(document.createTextNode(character));
+    clearLetterComposition();
+    typedCount++;
     if (typedCount >= characters.length) { completeLetter(); return; }
-    const previous = characters[typedCount - 1];
-    const pause = /[。！？；]/.test(previous) ? 270 : /[，、：]/.test(previous) ? 150 : previous === '\n' ? 160 : 0;
-    typingTimer = later(typeNext, typingSpeed + pause);
+    const pause = /[。！？；.!?;]/.test(character) ? 850
+      : /[，、：,:]/.test(character) ? 400
+      : character === '\n' ? (characters[typedCount] === '\n' ? 350 : 1150) : 0;
+    const thoughtPause = reading && typedCount % 19 === 0 ? 220 : 0;
+    typingTimer = later(typeNext, humanDelay(typedCount, 0, 1.1) + pause + thoughtPause);
   }
   function completeLetter() {
     if (phase !== 'letter' || letterComplete) return;
     cancelTimer(typingTimer);
+    typingTimer = null;
+    clearLetterComposition();
     letterComplete = true;
     $('typed-letter').textContent = letter;
     $('typed-letter').classList.add('is-complete');
@@ -1663,6 +1748,7 @@ function createWishDelivery({ configured = false, recipient = '', endpoint = '',
     $('receipt-copy').hidden = true;
     $('wish-form').reset();
     fields.forEach(clearError);
+    clearLetterComposition();
     $('typed-letter').textContent = '';
     $('typed-letter').classList.remove('is-complete');
     $('letter-signature').hidden = true;
@@ -1838,10 +1924,14 @@ function createWishDelivery({ configured = false, recipient = '', endpoint = '',
   }
   const celebration = new Confetti($('confetti'));
   $('confetti-toggle').addEventListener('click', () => celebration.toggle());
+  function onMotionPreferenceChange() {
+    celebration.onMotionPreference();
+    if (reducedMotion.matches && phase === 'letter' && !letterComplete) completeLetter();
+  }
   if (reducedMotion.addEventListener) {
-    reducedMotion.addEventListener('change', () => celebration.onMotionPreference());
+    reducedMotion.addEventListener('change', onMotionPreferenceChange);
   } else if (reducedMotion.addListener) {
-    reducedMotion.addListener(() => celebration.onMotionPreference());
+    reducedMotion.addListener(onMotionPreferenceChange);
   }
 
 
